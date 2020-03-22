@@ -13,6 +13,7 @@ require('dotenv').config()
 // const app = express()
 const inquirer = require('inquirer')
 // const port = '8000'
+const moment = require('moment')
 
 
 const { quotes, tenet } = require('../quotes')
@@ -25,7 +26,16 @@ const quote = `
   ${quotes[Math.floor(Math.random() * quotes.length)].quote} 
   
   - ${quotes[Math.floor(Math.random() * quotes.length)].author}
-  `
+`
+// console.log('the number of quotes I have are', quotes.length)
+// console.log('the day in the year is', moment().format('DDD'))
+
+const quoteOfTheDay = `
+  ${quotes[moment().format('DDD') % quotes.length - 1].quote}
+
+  - ${quotes[moment().format('DDD') % quotes.length - 1].author}
+`
+console.log(quoteOfTheDay)
 
 async function main() {
   console.log('Welcome to Kyogre')
@@ -44,7 +54,7 @@ async function main() {
   })
 
   // OUTPUT
-  const answer = question.nav === 'quote' ? quote : question.nav === 'tenet' ? tenet : 'Incorrect input. Closing..'
+  const answer = question.nav === 'quote' ? quoteOfTheDay : question.nav === 'tenet' ? tenet : 'Incorrect input. Closing..'
   console.log(answer)
 }
 
