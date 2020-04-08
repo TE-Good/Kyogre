@@ -13,6 +13,7 @@ const quoteOfTheDay = `
   - ${quote.author}
 `
 
+// Creates and handles the prompt and its output values
 async function main() {
   // LIST VERSION
   const question = await inquirer.prompt({
@@ -35,6 +36,7 @@ async function main() {
   else return 'Incorrect input. Closing..'
 }
 
+// Prints the values from the prompt
 async function cli() {
   let answer = null
   while (answer !== 'exit') {
