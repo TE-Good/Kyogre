@@ -1,0 +1,6 @@
+# macOS files
+.DS_Store
+# package install info
+package-lock.json
+# packages
+node_modules/
