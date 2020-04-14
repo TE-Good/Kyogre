@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-grid {
+  height: 40%;
+  width: 20%;
+  /* background: red; */
+
+  display: inline-grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+.pin-container {
+  /* border: black 1px solid; */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin {
+  height: 25%;
+  width: 20%;
+  background: black;
+  border-radius: 100%;
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@
  * Could send a text at 8am every morning with my tenet and quote of the day
  * Use this as the API for a webapp that will give me a quote for each day
  * Could also make a short mobile app with this
+ * START PAGE IS A PIN 4 by 4. Need to type in the right code
  */
 
 

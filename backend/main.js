@@ -42,7 +42,7 @@ async function cli() {
   while (answer !== 'exit') {
     answer = await main()
     if (answer === 'exit') return
-    console.log('1', answer)
+    console.log(answer)
   }
 }
 
