@@ -32,8 +32,12 @@ body {
 
 .pin {
   height: 25%;
-  width: 20%;
+  width: 19%;
   background: black;
   border-radius: 100%;
   cursor: pointer;
+}
+
+.green {
+  background: green;
 }

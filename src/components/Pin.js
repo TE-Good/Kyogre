@@ -4,12 +4,18 @@ export default function Pin() {
   const [combination, setCombination] = useState([])
 
   function handleCombination(event) {
+    if (combination.includes(event.target.id)) return null
     const newCombination = [...combination, event.target.id]
     setCombination(newCombination)
+    // cant compare two lists like this
+    if (newCombination === ['1', '2', '3', '4']) return console.log('CORRECT')
     if (newCombination.length === 4) {
       console.log('PINCODE', newCombination)
       setCombination([])
+      const target = event.target.parentNode.parentNode.childNodes
+      setTimeout(() => target.forEach(div => console.log(div.childNodes[0].classList = 'pin')), 500)
     }
+    event.target.classList.add('green')
   }
 
   return (
