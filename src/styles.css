@@ -38,6 +38,6 @@ body {
   cursor: pointer;
 }
 
-.green {
-  background: green;
+.grey {
+  background: rgba(128, 128, 128, 0.5);
 }
