@@ -1,17 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Pin from './components/Pin'
 import Dash from './components/Dash'
 
-import './styles.css'
+import './styles.scss'
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/dash" component={Dash} />
+        <Route eaxct path="/dash" component={Dash} />
         <Route exact path="/" component={Pin} />
       </Switch>
     </Router>
@@ -19,4 +19,4 @@ function App() {
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('container'))
+render(<App />, document.getElementById('container'))
