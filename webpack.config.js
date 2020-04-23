@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const path = require('path')
+const path = require('path')
 
 module.exports = {
-  // entry: './src/index.js',
+  entry: './src/index.js',
   output: {
-    // filename: 'bundle.js',
-    // path: path.resolve('dist'),
+    filename: 'bundle.js',
+    path: path.resolve('dist'),
     // Fixes the refresh problem
     publicPath: '/'
   },
@@ -24,15 +24,24 @@ module.exports = {
           'css-loader',
           // Compiles Sass to CSS
           'sass-loader',
-        ],
-      },
+        ]
+      }
     ]
   },
   devServer: {
+    contentBase: path.resolve('src'),
+    watchContentBase: true,
     // Tells webpack what server to run on
-    port: 8000,
+    port: 4000,
     // Fixes the refresh problem
-    historyApiFallback: true
+    historyApiFallback: true,
+    // Allow hot reloading
+    hot: true,
+    // Opens the browser after server had been  
+    open: true,
+    proxy: {
+      '/api': 'http://localhost:8000'
+    }
   },
   plugins: [
     // Points at the html file
