@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Pin from './components/Pin'
 import Dash from './components/Dash'
 
+require('@babel/polyfill')
 import './styles.scss'
 
 function App() {

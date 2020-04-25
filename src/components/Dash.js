@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export default function Dash() {
@@ -7,6 +7,16 @@ export default function Dash() {
   function handleClick() {
     console.log('click')
   }
+  
+  async function getQuoteOfTheDay() {
+    const response = await fetch('api/quote')
+    console.log('response', response)
+  }
+
+  useEffect(() => {
+    console.log('useEffect')
+    getQuoteOfTheDay()
+  }, [])
 
   // Will need to call API to get info for this page.
   // IDEA: Have TENET move up and then the tenet appear underneath. Or have

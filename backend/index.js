@@ -23,6 +23,6 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/tenet', (req, res) => res.send(tenet))
-app.get('/quote', (req, res) => res.send(quotes[moment().format('DDD') % quotes.length - 1]))
+app.get('api/tenet', (req, res) => res.send(tenet))
+app.get('api/quote', (req, res) => res.send(quotes[moment().format('DDD') % quotes.length - 1]))
 app.listen(port, () => console.log(`Receiving on port ${port}`))
