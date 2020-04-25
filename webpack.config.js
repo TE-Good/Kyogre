@@ -41,7 +41,10 @@ module.exports = {
     // Opens the browser after server had been  
     open: true,
     proxy: {
-      '/api': 'http://localhost:8000'
+      '/api': {
+        target: 'http://localhost:8000',
+        secure: false
+      }
     }
   },
   plugins: [

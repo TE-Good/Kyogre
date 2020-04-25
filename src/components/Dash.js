@@ -1,20 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export default function Dash() {
   const history = useHistory()
+  const [tenet, setTenet] = useState([])
 
   function handleClick() {
     console.log('click')
   }
   
   async function getQuoteOfTheDay() {
-    const response = await fetch('api/quote')
+    const response = await fetch('/api/tenet')
     console.log('response', response)
+    const data = await response.json()
+    const formattedData = data.tenet.split('. ')
+    // const data = await response.json()
+    setTenet(formattedData)
   }
 
   useEffect(() => {
-    console.log('useEffect')
     getQuoteOfTheDay()
   }, [])
 
@@ -23,10 +27,11 @@ export default function Dash() {
   // it clickable to reveal?
   return (
     <>
-      {console.log(process.env.TEST)}
+      {console.log(tenet)}
       <div className="dash-container animated fadeIn">
         <div className="half-dash-wrapper">
-          <h1>TENET</h1> 
+          {/* <h1>TENET</h1>  */}
+          {tenet.map((line, i) => <p key={i}>{line}</p>)} 
         </div>
         <div className="half-dash-wrapper">
           <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5>

@@ -6,7 +6,7 @@ const { quotes, tenet } = require('../../quotes')
 // console.log('the number of quotes I have are', quotes.length)
 // console.log('the day in the year is', moment().format('DDD'))
 
-const quote = quotes[moment().format('DDD') % quotes.length - 1]
+const quote = quotes.quotes[moment().format('DDD') % quotes.length - 1]
 const quoteOfTheDay = `
   ${quote.quote}
 
