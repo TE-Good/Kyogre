@@ -4,21 +4,27 @@ import { useHistory } from 'react-router-dom'
 export default function Dash() {
   const history = useHistory()
   const [tenet, setTenet] = useState([])
+  const [quote, setQuote] = useState('')
 
   function handleClick() {
     console.log('click')
   }
   
-  async function getQuoteOfTheDay() {
+  async function getTenet() {
     const response = await fetch('/api/tenet')
-    console.log('response', response)
     const data = await response.json()
-    const formattedData = data.tenet.split('. ')
-    // const data = await response.json()
+    const formattedData = data.tenet.split('/ ')
     setTenet(formattedData)
   }
 
+  async function getQuoteOfTheDay() {
+    const response = await fetch('/api/quote')
+    const data = await response.json()
+    setQuote(data)
+  }
+
   useEffect(() => {
+    getTenet()
     getQuoteOfTheDay()
   }, [])
 
@@ -27,7 +33,7 @@ export default function Dash() {
   // it clickable to reveal?
   return (
     <>
-      {console.log(tenet)}
+      {console.log(tenet, quote)}
       <div className="dash-container animated fadeIn">
         <div className="half-dash-wrapper">
           {/* <h1>TENET</h1>  */}
@@ -35,7 +41,9 @@ export default function Dash() {
         </div>
         <div className="half-dash-wrapper">
           <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5>
-          <h1>QUOTE</h1>
+          {/* <h1>QUOTE</h1> */}
+          <p>{quote.quote}</p>
+          <p>- {quote.author}</p>
           <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4>
         </div>
       </div>

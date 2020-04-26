@@ -12,6 +12,7 @@ const moment = require('moment')
 require('dotenv').config()
 
 const { quotes, tenet, tenetJson } = require('../../quotes')
+
 const port = '8000'
 
 const app = express()
@@ -24,5 +25,6 @@ app.use((req, res, next) => {
 })
 
 app.get('/api/tenet', (req, res) => res.send(tenetJson))
-app.get('/api/quote', (req, res) => res.send(quotes[moment().format('DDD') % quotes.length - 1]))
+app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length - 1]))
+app.get('/api/random_quote', (req, res) => res.send(quotes.quotes.length))
 app.listen(port, () => console.log(`Receiving on port ${port}`))
