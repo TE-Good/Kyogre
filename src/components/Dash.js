@@ -7,7 +7,7 @@ export default function Dash() {
   const [quote, setQuote] = useState('')
 
   function handleClick() {
-    console.log('click')
+    getRandomQuote()
   }
   
   async function getTenet() {
@@ -19,6 +19,12 @@ export default function Dash() {
 
   async function getQuoteOfTheDay() {
     const response = await fetch('/api/quote')
+    const data = await response.json()
+    setQuote(data)
+  }
+
+  async function getRandomQuote() {
+    const response = await fetch('/api/random_quote')
     const data = await response.json()
     setQuote(data)
   }
@@ -44,7 +50,8 @@ export default function Dash() {
           {/* <h1>QUOTE</h1> */}
           <p>{quote.quote}</p>
           <p>- {quote.author}</p>
-          <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4>
+          {/* <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4> */}
+          <h4 className="contextual-button random-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
       </div>
     </>
