@@ -11,15 +11,13 @@ const express = require('express')
 const moment = require('moment')
 require('dotenv').config()
 
-const { quotes } = require('../../quotes')
+const quotes = require('./quotes')
 
 const port = '8000'
 
 const app = express()
 
 // app.use(express.json())
-
-console.log()
 
 app.use((req, res, next) => {
   console.log(`${req.method} to ${req.url}`)

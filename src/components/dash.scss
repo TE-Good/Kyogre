@@ -21,50 +21,38 @@
   align-items: center;
 }
 
-
-
-// Random Quote Button
-.random-quote-icon {
-  transform: translateY(25vh);
-  font-size: 3vh;
-  color: grey;
-  cursor: pointer;
+// Quote Text
+.quote-text {
+  max-width: 70%;
+  line-height: 5vh;
+  transform: translateY(-5vh)
 }
 
-.random-quote-icon:hover {
+.quote-author {
+  overflow: auto;
+  transform: translateX(12vw) translateY(5vh)
+}
+
+// Random Quote Button
+.button-container {
+  height: 10vh;
+  width: 100%;
+  transform: translateY(25vh);
+  color: grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.random-quote-icon, .div-button {
+  cursor: pointer;
+  padding: 0 1vw 0 1vw;
+}
+
+.random-quote-icon:hover, .div-button:hover {
   color: black
 }
 
 /*******************/
 // SECRET LOCATION //
 /*******************/
-
-.half-dash-wrapper {
-  height: 100%;
-  width: 50%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.half-dash-wrapper:first-of-type {
-  background: grey;
-  color: white;
-}
-
-.half-dash-wrapper:last-of-type {
-  justify-content: space-between;
-}
-
-.back-button {
-  align-self: flex-end;
-  position: relative;
-  right: 1vw;
-}
-
-.div-button:hover {
-  cursor: pointer;
-  border-bottom: black solid 2px;
-}

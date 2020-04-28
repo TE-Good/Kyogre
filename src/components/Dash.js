@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 export default function Dash() {
-  const history = useHistory()
+  // const history = useHistory()
   const [tenet, setTenet] = useState([])
   const [quote, setQuote] = useState('')
-  const [secret, setSecret] = useState(false)
 
   function handleClick() {
     getRandomQuote()
@@ -38,36 +37,24 @@ export default function Dash() {
   // Will need to call API to get info for this page.
   // IDEA: Have TENET move up and then the tenet appear underneath. Or have
   // it clickable to reveal?
+
+  // INTRO NAME & IMAGE
+  // ADD ANIMATIONS TO QUOTES APPEARING AND GOING
+  // ADD UNDERLINE TO QUOTE OF THE DAY OR RANDOM ICON DEPENDING ON WHATS SHOWN
+  // ADD MY BUTTON TO NAV TO A NEW PAGE WITH PIN - WHICH HOLDS THE TENET
   return (
     <>
       {console.log(tenet, quote)}
       <div className="dash-container animated fadeIn">
         <div className="full-dash-wrapper">
-          {/* <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5> */}
-          {/* <h1>QUOTE</h1> */}
-          <p className="quote-text">{quote.quote}.</p>
-          <p className="quote-author">- {quote.author}</p>
-          {/* <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4> */}
-          <h4 className="contextual-button random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+          <div className="quote-text">{quote.quote}</div>
+          <div className="quote-author">- {quote.author}</div>
+          <div className="button-container">
+            <h4 className="div-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
+            <h4 className="random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+          </div>
         </div>
       </div>
     </>
   )
 }
-
-
-// {console.log(tenet, quote)}
-// <div className="dash-container animated fadeIn">
-//   <div className="half-dash-wrapper">
-//     <h1>TENET</h1> 
-//     {tenet.map((line, i) => <p key={i}>{line}</p>)} 
-//   </div>
-//   <div className="half-dash-wrapper">
-//     <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5>
-//     {/* <h1>QUOTE</h1> */}
-//     <p>{quote.quote}.</p>
-//     <p>- {quote.author}</p>
-//     {/* <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4> */}
-//     <h4 className="contextual-button random-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
-//   </div>
-// </div>
