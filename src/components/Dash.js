@@ -5,6 +5,7 @@ export default function Dash() {
   const history = useHistory()
   const [tenet, setTenet] = useState([])
   const [quote, setQuote] = useState('')
+  const [secret, setSecret] = useState(false)
 
   function handleClick() {
     getRandomQuote()
@@ -41,19 +42,32 @@ export default function Dash() {
     <>
       {console.log(tenet, quote)}
       <div className="dash-container animated fadeIn">
-        <div className="half-dash-wrapper">
-          {/* <h1>TENET</h1>  */}
-          {tenet.map((line, i) => <p key={i}>{line}</p>)} 
-        </div>
-        <div className="half-dash-wrapper">
-          <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5>
+        <div className="full-dash-wrapper">
+          {/* <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5> */}
           {/* <h1>QUOTE</h1> */}
-          <p>{quote.quote}</p>
-          <p>- {quote.author}</p>
+          <p className="quote-text">{quote.quote}.</p>
+          <p className="quote-author">- {quote.author}</p>
           {/* <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4> */}
-          <h4 className="contextual-button random-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+          <h4 className="contextual-button random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
       </div>
     </>
   )
 }
+
+
+// {console.log(tenet, quote)}
+// <div className="dash-container animated fadeIn">
+//   <div className="half-dash-wrapper">
+//     <h1>TENET</h1> 
+//     {tenet.map((line, i) => <p key={i}>{line}</p>)} 
+//   </div>
+//   <div className="half-dash-wrapper">
+//     <h5 className="back-button div-button" onClick={() => history.push('/')}>BACK</h5>
+//     {/* <h1>QUOTE</h1> */}
+//     <p>{quote.quote}.</p>
+//     <p>- {quote.author}</p>
+//     {/* <h4 className="contextual-button div-button" onClick={handleClick}>RANDOM</h4> */}
+//     <h4 className="contextual-button random-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+//   </div>
+// </div>
