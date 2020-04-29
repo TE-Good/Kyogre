@@ -38,10 +38,15 @@ export default function Dash() {
   // IDEA: Have TENET move up and then the tenet appear underneath. Or have
   // it clickable to reveal?
 
+  // MAP //
   // INTRO NAME & IMAGE
   // ADD ANIMATIONS TO QUOTES APPEARING AND GOING
   // ADD UNDERLINE TO QUOTE OF THE DAY OR RANDOM ICON DEPENDING ON WHATS SHOWN
   // ADD MY BUTTON TO NAV TO A NEW PAGE WITH PIN - WHICH HOLDS THE TENET
+  
+  // BUGS //
+  // BUTTONS MOVE DOWN WHEN THERES TWO LINES TO THE QUOTES - FIX THE BUTTON LOCATION
+  // - OR ~ INFRONT OF AUTHOR?
   return (
     <>
       {console.log(tenet, quote)}
