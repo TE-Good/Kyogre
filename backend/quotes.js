@@ -281,7 +281,7 @@ const quotes = {
       'author': 'Socrates'
     },
     {
-      'quote': 'Our life is frittered away by detail… simplify, simplify',
+      'quote': 'Our life is frittered away by detail… simplify, simplify.',
       'author': 'Henry David Thoreau'
     },
     {
@@ -369,7 +369,7 @@ const quotes = {
       'author': 'Frank Zappa'
     },
     {
-      'quote': 'Imagination create reality.',
+      'quote': 'Imagination creates reality.',
       'author': 'Richard Wagner'
     },
     {
