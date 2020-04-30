@@ -321,7 +321,7 @@ const quotes = {
       'author': 'John F. Kennedy'
     },
     {
-      'quote': 'If not us, who? If not now, when',
+      'quote': 'If not us, who? If not now, when.',
       'author': 'John F. Kennedy'
     },
     {
@@ -461,7 +461,7 @@ const quotes = {
       'author': 'Ernest Hemingway'
     },
     {
-      'quote': 'The scariest moment is just before you start',
+      'quote': 'The scariest moment is just before you start.',
       'author': 'Stephen King'
     },
     {
@@ -481,7 +481,7 @@ const quotes = {
       'author': 'Salvador Dali'
     },
     {
-      'quote': 'If you hear a voice within you say, \'You cannot paint\' the by all means paint, and that voice will be silenced.',
+      'quote': 'If you hear a voice within you say, \'You cannot paint\' then by all means paint, and that voice will be silenced.',
       'author': 'Vincent Van Gogh'
     },
     {
@@ -493,7 +493,7 @@ const quotes = {
       'author': 'William Shedd'
     },
     {
-      'quote': 'My failure to sound like my hero\'s allowed me to sound like myself',
+      'quote': 'My failure to sound like my hero\'s allowed me to sound like myself.',
       'author': 'John Mayer'
     }
   ]

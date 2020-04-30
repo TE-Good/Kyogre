@@ -1,0 +1,43 @@
+/***********/
+//  FRONT  //
+/***********/
+
+.front-container {
+height: 100%;
+width: 100%;
+}
+
+.front-main {
+  height: 75%;
+  width: 100%;
+
+  transform: translateY(5vh);
+
+  font-size: 400%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front-bottom {
+  height: 25%;
+  width: 100%;
+
+  font-size: 150%;
+
+  color: grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-forward {
+  transform: translateY(-6vh);
+}
+
+.fa-forward:hover {
+  cursor: pointer;
+  color: black;
+}

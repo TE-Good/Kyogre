@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import Front from './components/Front'
 import Pin from './components/Pin'
 import Dash from './components/Dash'
 
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <Switch>
         <Route eaxct path="/dash" component={Dash} />
-        <Route exact path="/" component={Pin} />
+        <Route exact path="/" component={Front} />
       </Switch>
     </Router>
 

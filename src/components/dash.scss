@@ -23,9 +23,13 @@
 
 // Quote Text
 .quote-text {
+  height: 10%;
   max-width: 70%;
   line-height: 5vh;
-  transform: translateY(-5vh)
+  transform: translateY(-5vh);
+
+  display: flex;
+  align-items: center;
 }
 
 .quote-author {
