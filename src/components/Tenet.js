@@ -7,7 +7,6 @@ export default function Pin() {
   // const history = useHistory()
 
   const pin = process.env.PIN.split(',').map(num => Number(num))
-  console.log(pin)
 
   function handleCombination(event) {
     // Don't add number if it's already been clicked
