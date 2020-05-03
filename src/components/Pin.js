@@ -33,7 +33,9 @@ export default function Pin({ setTenetStage }) {
   return (
     <div className="pin-grid animated fadeIn slow"> 
       {[...Array(12)].map((num, i) => (
-        <div key={i} className="pin-container"><div id={i} className="pin" onClick={handleCombination}></div></div>
+        <div key={i} className="pin-container">
+          <div id={i} className="pin" onClick={handleCombination}></div>
+        </div>
       ))}
     </div>
   )
