@@ -10,32 +10,6 @@
 }
 
 /***********/
-//   Pin   //
-/***********/
-.pin-grid {
-  height: 40%;
-  width: 20%;
-
-  display: inline-grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
-  grid-template-rows: 25% 25% 25% 25%;
-}
-
-.pin-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pin {
-  height: 25%;
-  width: 19%;
-  background: black;
-  border-radius: 100%;
-  cursor: pointer;
-}
-
-/***********/
 //  Tenet  //
 /***********/
 .tenet-line {
