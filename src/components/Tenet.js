@@ -17,8 +17,9 @@ export default function Pin() {
     event.target.classList.add('grey')
     setCombination(newCombination)
 
+    console.log(new Set([...pin, ...newCombination]))
     // If the correct pins are chosen, navigate to the next page
-    if (newCombination.filter(num => pin.includes(num)).length === pin.length) {
+    if (newCombination.length === pin.length && [...new Set([...pin, ...newCombination])].length === pin.length) {
       event.target.parentNode.parentNode.classList.remove('fadeIn')
       event.target.parentNode.parentNode.classList.remove('slow')
       event.target.parentNode.parentNode.classList.add('fadeOut')
@@ -26,7 +27,11 @@ export default function Pin() {
     }
 
     // Resetting the pins
-    if (newCombination.length === pin.length) setCombination([])
+    if (newCombination.length === pin.length) {
+      setCombination([])
+      const target = event.target.parentNode.parentNode.childNodes
+      setTimeout(() => target.forEach(div => div.childNodes[0].classList = 'pin'), 500)
+    }
   }
 
   const handleBackClick = () => history.push('/dash')
