@@ -22,7 +22,6 @@ export default function Dash() {
   }
 
   function handleKeyUp(e) {
-    console.log(e.keyCode)
     return e.keyCode === 84 ? history.push('/tenet') : null
   }
 
@@ -49,7 +48,6 @@ export default function Dash() {
   // - OR ~ INFRONT OF AUTHOR?
   return (
     <>
-      {console.log(quote)}
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>

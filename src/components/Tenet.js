@@ -5,12 +5,12 @@ export default function Pin() {
   const history = useHistory()
   const [tenetStage, setTenetStage] = useState(false)
   const [combination, setCombination] = useState([])
-
-  const pin = process.env.PIN.split(',').map(num => Number(num))
-
+  
   function handleCombination(event) {
     // Don't add number if it's already been clicked
     if (combination.includes(event.target.id)) return null
+    
+    const pin = process.env.PIN.split(',').map(num => Number(num))
 
     // Add new pin to combination
     const newCombination = [...combination, Number(event.target.id) + 1]
@@ -22,31 +22,21 @@ export default function Pin() {
       event.target.parentNode.parentNode.classList.remove('fadeIn')
       event.target.parentNode.parentNode.classList.remove('slow')
       event.target.parentNode.parentNode.classList.add('fadeOut')
-      setTimeout(() => {
-        console.log('tenet')
-        setTenetStage(true)
-      }, 500)
+      setTimeout(() => setTenetStage(true), 500)
     }
 
     // Resetting the pins
-    if (newCombination.length === pin.length) {
-      console.log('PINCODE', newCombination)
-      setCombination([])
-      const target = event.target.parentNode.parentNode.childNodes
-      setTimeout(() => target.forEach(div => console.log(div.childNodes[0].classList = 'pin')), 500)
-    }
+    if (newCombination.length === pin.length) setCombination([])
   }
 
-  function handleBackClick() {
-    return history.push('/dash')
-  }
+  const handleBackClick = () => history.push('/dash')
 
   return (
     <div className="tenet-container">
       <i className="tenet-back animated fadeIn fas fa-arrow-left" onClick={() => handleBackClick()}></i>
       {!tenetStage &&
         <div className="pin-grid animated fadeIn slow"> 
-          {[...Array(12)].map((ele, i) => (
+          {[...Array(12)].map((num, i) => (
             <div key={i} className="pin-container"><div id={i} className="pin" onClick={handleCombination}></div></div>
           ))}
         </div>
