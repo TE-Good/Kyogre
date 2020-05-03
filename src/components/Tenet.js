@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export default function Pin() {
+  const history = useHistory()
+  const [tenetStage, setTenetStage] = useState(false)
   const [combination, setCombination] = useState([])
-
-  // const history = useHistory()
 
   const pin = process.env.PIN.split(',').map(num => Number(num))
 
@@ -24,7 +24,7 @@ export default function Pin() {
       event.target.parentNode.parentNode.classList.add('fadeOut')
       setTimeout(() => {
         console.log('tenet')
-        // return history.push('/dash')
+        setTenetStage(true)
       }, 500)
     }
 
@@ -35,16 +35,25 @@ export default function Pin() {
       const target = event.target.parentNode.parentNode.childNodes
       setTimeout(() => target.forEach(div => console.log(div.childNodes[0].classList = 'pin')), 500)
     }
-  } 
+  }
 
-
-  // if pin === process.env.PIN && tenet return api call
+  function handleBackClick() {
+    return history.push('/dash')
+  }
 
   return (
-    <div className="pin-grid animated fadeIn slow">
-      {[...Array(12)].map((ele, i) => (
-        <div key={i} className="pin-container animated bounce delay-1s fast"><div id={i} className="pin" onClick={handleCombination}></div></div>
-      ))}
+    <div className="tenet-container">
+      <i className="tenet-back animated fadeIn fas fa-arrow-left" onClick={() => handleBackClick()}></i>
+      {!tenetStage &&
+        <div className="pin-grid animated fadeIn slow"> 
+          {[...Array(12)].map((ele, i) => (
+            <div key={i} className="pin-container"><div id={i} className="pin" onClick={handleCombination}></div></div>
+          ))}
+        </div>
+      }
+      {tenetStage &&
+        process.env.TENET.split('/ ').map((line, i) => <div key={i} className="tenet-line animated fadeIn">{line}</div>)
+      }
     </div>
   )
 }

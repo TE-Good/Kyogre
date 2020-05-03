@@ -1,3 +1,7 @@
+@import './components/front.scss';
+@import './components/dash.scss';
+@import './components/tenet.scss';
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
 body {
@@ -16,35 +20,6 @@ body {
   align-items: center;
 }
 
-.pin-grid {
-  height: 40%;
-  width: 20%;
-  /* background: red; */
-
-  display: inline-grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
-  grid-template-rows: 25% 25% 25% 25%;
-}
-
-.pin-container {
-  /* border: black 1px solid; */
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pin {
-  height: 25%;
-  width: 19%;
-  background: black;
-  border-radius: 100%;
-  cursor: pointer;
-}
-
 .grey {
   background: rgba(128, 128, 128, 0.5);
 }
-
-@import './components/front.scss';
-@import './components/dash.scss';

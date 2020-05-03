@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/api/tenet', (req, res) => res.send({ 'tenet': process.env.TENET }))
-app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length - 1]))
+// app.get('/api/tenet', (req, res) => res.send({ 'tenet': process.env.TENET }))
+app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
 app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 app.listen(port, () => console.log(`Receiving on port ${port}`))
