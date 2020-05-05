@@ -8,8 +8,8 @@ export default function Front() {
   const [fadeIn, setFadeIn] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => setFadeIn(false),1500)
-    setTimeout(() => history.push('/dash'), 2000)
+    setTimeout(() => setFadeIn(false),2000)
+    setTimeout(() => history.push('/dash'), 2500)
   }, [])
 
   return (

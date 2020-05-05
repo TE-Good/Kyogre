@@ -23,3 +23,10 @@
   border-radius: 100%;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 450px) {
+  .pin-grid {
+    height: 50%;
+    width: 80%;
+  }
+}
