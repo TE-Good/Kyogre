@@ -46,8 +46,10 @@ export default function Dash() {
   // BUGS //
   // BUTTONS MOVE DOWN WHEN THERES TWO LINES TO THE QUOTES - FIX THE BUTTON LOCATION
   // - OR ~ INFRONT OF AUTHOR?
+  // MAKE PINS RESPONSIVE - MAKE PIN 3x3 ?
   return (
     <>
+      <i className="tenet-button fab fa-superpowers" onClick={() => console.log('makes visibile, then second click sends')}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>
@@ -55,7 +57,6 @@ export default function Dash() {
           <h4 className="div-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
           <h4 className="random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
-        {/* <i class="fab fa-superpowers"></i> */}
       </div>
     </>
   )
