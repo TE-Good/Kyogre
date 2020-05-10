@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 export default function Dash() {
   const history = useHistory()
   const [quote, setQuote] = useState('')
+  const [tenetButtonShow, setTenetButtonShow] = useState(false)
 
   function handleClick() {
     getRandomQuote()
@@ -33,6 +34,14 @@ export default function Dash() {
     }
   }, [])
 
+  function handleTenetButton(e) {
+    console.log('test', e.target.classList)
+    if (e.target.classList.contains('black-text')) return history.push('/tenet')
+    if (!tenetButtonShow) return e.target.classList.add('black-text', 'fadeIn')
+    setTenetButtonShow(true)
+
+  }
+
   // Will need to call API to get info for this page.
   // IDEA: Have TENET move up and then the tenet appear underneath. Or have
   // it clickable to reveal?
@@ -42,6 +51,7 @@ export default function Dash() {
   // ADD ANIMATIONS TO QUOTES APPEARING AND GOING
   // ADD UNDERLINE TO QUOTE OF THE DAY OR RANDOM ICON DEPENDING ON WHATS SHOWN
   // ADD MY BUTTON TO NAV TO A NEW PAGE WITH PIN - WHICH HOLDS THE TENET
+  // ADD MONGODB AND STORE QUOTES
   
   // BUGS //
   // BUTTONS MOVE DOWN WHEN THERES TWO LINES TO THE QUOTES - FIX THE BUTTON LOCATION
@@ -49,7 +59,7 @@ export default function Dash() {
   // MAKE PINS RESPONSIVE - MAKE PIN 3x3 ?
   return (
     <>
-      <i className="tenet-button fab fa-superpowers" onClick={() => console.log('makes visibile, then second click sends')}></i>
+      <i className="tenet-button fab fa-superpowers animated" onClick={e => handleTenetButton(e)}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>

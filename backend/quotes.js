@@ -21,7 +21,7 @@ const quotes = {
       'author': 'Helen Keller'
     },
     {
-      'quote': 'The man how has confidence in himself gains the the confidence of others.',
+      'quote': 'The man who has confidence in himself gains the the confidence of others.',
       'author': 'Hasidic Proverb'
     },
     {
