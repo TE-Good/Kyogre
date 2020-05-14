@@ -9,11 +9,16 @@
 
 const express = require('express')
 const moment = require('moment')
+const mongoose = require('mongoose')
 require('dotenv').config()
 
 const quotes = require('./quotes')
 
 const port = '8000'
+
+express.json()
+
+mongoose.connect('http://localhost/test')
 
 const app = express()
 
