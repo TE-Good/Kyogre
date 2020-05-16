@@ -5,7 +5,11 @@ require('dotenv').config()
 const quotes = require('./quotes')
 
 // Tenet
-const tenet = process.env.TENET.split('/ ').join('\n')
+const tenet = `
+TENET
+=====
+${process.env.TENET.split('/ ').join('\n')}
+`
 
 // Quote
 function QuoteOfTheDay() {
@@ -29,7 +33,6 @@ function randomQuote() {
 
 // Creates and handles the prompt and its output values
 async function input() {
-  // LIST VERSION
   const question = await inquirer.prompt({
     type: 'list',
     name: 'nav',
@@ -37,18 +40,21 @@ async function input() {
     choices: ['quote of the day', 'random quote', 'tenet', 'exit']
   })
 
-  // TYPED VERSION
-  // const question = await inquirer.prompt({
-  //   name: 'nav',
-  //   message: 'Do you want your tenet or a quote?'
-  // })
-
-  // OUTPUT
   if (question.nav === 'quote of the day') return QuoteOfTheDay()
   if (question.nav === 'random quote') return randomQuote()
-  if (question.nav === 'tenet') return tenet
+  if (question.nav === 'tenet') return getTenet()
   if (question.nav === 'exit') return 'exit'
   else return 'Incorrect input. Closing..'
+}
+
+async function getTenet() {
+  const tenetPrompt = await inquirer.prompt({
+    type: 'password',
+    name: 'password',
+    message: 'Provide password:'
+  })
+
+  return tenetPrompt.password === process.env.PASSWORD ? tenet : 'Incorrect password.'
 }
 
 // Prints the values from the prompt
@@ -70,5 +76,5 @@ console.log(`
             \\/\\/          /_____/             \\/
         `)
 
-console.log('\nWelcome to Kyogre \n')
+console.log('\nWelcome to Kyogre.\n')
 cli()

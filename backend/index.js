@@ -18,7 +18,7 @@ const port = '8000'
 
 express.json()
 
-mongoose.connect('http://localhost/test')
+// mongoose.connect('http://localhost/test')
 
 const app = express()
 
