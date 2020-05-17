@@ -13,16 +13,14 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const quotes = require('./quotes')
-
-const port = '8000'
-
-express.json()
-
 const app = express()
+const port = '8000'
 
 // Mongo connection and db connection log
 mongoose.connect('http://localhost/kyogre', { useNewUrlParser: true }, () => console.log('Mongo connected.'))
 
+// JSON parser middleware
+app.use(express.json())
 
 // HTTP method & route call log
 app.use((req, res, next) => {
