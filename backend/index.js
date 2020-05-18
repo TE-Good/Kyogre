@@ -6,7 +6,6 @@
  * START PAGE IS A PIN 4 by 4. Need to type in the right code
  */
 
-
 const express = require('express')
 const moment = require('moment')
 const mongoose = require('mongoose')
@@ -15,9 +14,19 @@ require('dotenv').config()
 const quotes = require('./quotes')
 const app = express()
 const port = '8000'
+const dbURI = 'http://localhost/kyogre'
+
+// Defining schema
+const quoteSchema = new mongoose.Schema({
+  quote: String,
+  author: String
+})
+
+// Building the quote model
+const quotesModel = mongoose.model('Quote', quoteSchema)
 
 // Mongo connection and db connection log
-mongoose.connect('http://localhost/kyogre', { useNewUrlParser: true }, () => console.log('Mongo connected.'))
+mongoose.connect(dbURI, { useNewUrlParser: true }, () => console.log('Mongo connected.'))
 
 // JSON parser middleware
 app.use(express.json())
@@ -34,3 +43,5 @@ app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Mat
 
 // Express connection log
 app.listen(port, () => console.log(`Receiving on port ${port}`))
+
+module.exports = { quotesModel, dbURI }
