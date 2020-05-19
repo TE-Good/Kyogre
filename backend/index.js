@@ -34,5 +34,3 @@ app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Mat
 
 // Express connection log
 app.listen(port, () => console.log(`Receiving on port ${port}`))
-
-// module.exports = { dbURI }
