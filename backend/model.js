@@ -1,8 +1,12 @@
 const mongoose = require('mongoose')
 
+// Defining schema
 const quoteSchema = new mongoose.Schema({
   quote: String,
   author: String
 })
 
-module.exports = mongoose.model('Quote', quoteSchema)
+// Building the quote model
+const quotesModel = mongoose.model('Quote', quoteSchema)
+
+module.exports = quotesModel

@@ -14,19 +14,10 @@ require('dotenv').config()
 const quotes = require('./quotes')
 const app = express()
 const port = '8000'
-const dbURI = 'http://localhost/kyogre'
-
-// Defining schema
-const quoteSchema = new mongoose.Schema({
-  quote: String,
-  author: String
-})
-
-// Building the quote model
-const quotesModel = mongoose.model('Quote', quoteSchema)
+const dbURI = require('./env')
 
 // Mongo connection and db connection log
-mongoose.connect(dbURI, { useNewUrlParser: true }, () => console.log('Mongo connected.'))
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
 
 // JSON parser middleware
 app.use(express.json())
@@ -44,4 +35,4 @@ app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Mat
 // Express connection log
 app.listen(port, () => console.log(`Receiving on port ${port}`))
 
-module.exports = { quotesModel, dbURI }
+// module.exports = { dbURI }
