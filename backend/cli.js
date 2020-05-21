@@ -1,3 +1,4 @@
+// Module for CLI
 const inquirer = require('inquirer')
 const moment = require('moment')
 require('dotenv').config()
@@ -12,7 +13,7 @@ ${process.env.TENET.split('/ ').join('\n')}
 `
 
 // Quote
-function QuoteOfTheDay() {
+function quoteOfTheDay() {
   const quoteOfTheDay = quotes.quotes[moment().format('DDD') % quotes.quotes.length]
   return `
     ${quoteOfTheDay.quote}
@@ -40,7 +41,7 @@ async function input() {
     choices: ['quote of the day', 'random quote', 'tenet', 'exit']
   })
 
-  if (question.nav === 'quote of the day') return QuoteOfTheDay()
+  if (question.nav === 'quote of the day') return quoteOfTheDay()
   if (question.nav === 'random quote') return randomQuote()
   if (question.nav === 'tenet') return getTenet()
   if (question.nav === 'exit') return 'exit'

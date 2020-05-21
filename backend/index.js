@@ -1,12 +1,5 @@
-/**
- * IDEAS
- * Could send a text at 8am every morning with my tenet and quote of the day
- * Use this as the API for a webapp that will give me a quote for each day
- * Could also make a short mobile app with this
- * START PAGE IS A PIN 4 by 4. Need to type in the right code
- */
-
 const express = require('express')
+const router = require('express').Router()
 const moment = require('moment')
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -14,7 +7,8 @@ require('dotenv').config()
 const quotes = require('./quotes')
 const app = express()
 const port = '8000'
-const dbURI = require('./env')
+const dbURI = require('./enviro')
+const Quote = require('./model')
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
@@ -28,9 +22,22 @@ app.use((req, res, next) => {
   return next()
 })
 
-// Router & controllers
-app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
+// Controllers
+async function quoteOfTheDay(req, res) {
+  const quotes = await Quote.find()
+  return res.send(quotes[moment().format('DDD') % quotes.length])
+}
+
+// Routes
+router.route('/quote').get(quoteOfTheDay)
+
+// Routes & Controllers
+// app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
 app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
+
+
+
+app.use('/api', router)
 
 // Express connection log
 app.listen(port, () => console.log(`Receiving on port ${port}`))
