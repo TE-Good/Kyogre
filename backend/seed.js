@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Quote = require('./model')
-const dbURI = require('./env')
+const dbURI = require('./enviro')
 const quotes = require('./quotes')
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {

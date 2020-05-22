@@ -1,9 +1,11 @@
 // Module for CLI
+const mongoose = require('mongoose')
 const inquirer = require('inquirer')
 const moment = require('moment')
 require('dotenv').config()
 
-const quotes = require('./quotes')
+const Quote = require('./model')
+const dbURI = require('./enviro')
 
 // Tenet
 const tenet = `
@@ -12,9 +14,10 @@ TENET
 ${process.env.TENET.split('/ ').join('\n')}
 `
 
-// Quote
-function quoteOfTheDay() {
-  const quoteOfTheDay = quotes.quotes[moment().format('DDD') % quotes.quotes.length]
+// Controllers
+async function quoteOfTheDay() {
+  const quotes = await Quote.find()
+  const quoteOfTheDay = quotes[moment().format('DDD') % quotes.length]
   return `
     ${quoteOfTheDay.quote}
   
@@ -22,9 +25,9 @@ function quoteOfTheDay() {
   `
 }
 
-// Random quote
-function randomQuote() {
-  const randomQuote = quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]
+async function randomQuote() {
+  const quotes = await Quote.find()
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
   return `
     ${randomQuote.quote}
   
@@ -40,7 +43,7 @@ async function input() {
     message: 'Select output:',
     choices: ['quote of the day', 'random quote', 'tenet', 'exit']
   })
-
+  
   if (question.nav === 'quote of the day') return quoteOfTheDay()
   if (question.nav === 'random quote') return randomQuote()
   if (question.nav === 'tenet') return getTenet()
@@ -54,7 +57,7 @@ async function getTenet() {
     name: 'password',
     message: 'Provide password:'
   })
-
+  
   return tenetPrompt.password === process.env.PASSWORD ? tenet : 'Incorrect password.'
 }
 
@@ -68,14 +71,19 @@ async function cli() {
   }
 }
 
-console.log(`
-    ____  __.                                   
-    |    |/ _|___.__. ____   ___________   ____  
-    |      < <   |  |/  _ \\ / ___\\_  __ \\_/ __ \\ 
-    |    |  \\ \\___  (  <_> ) /_/  >  | \\/\\  ___/ 
-    |____|__ \\/ ____|\\____/\\___  /|__|    \\___  >
-            \\/\\/          /_____/             \\/
-        `)
-
-console.log('\nWelcome to Kyogre.\n')
-cli()
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err) => {
+  if (err) return console.log('initial:', err)
+  console.log(`
+  ____  __.                                   
+  |    |/ _|___.__. ____   ___________   ____  
+  |      < <   |  |/  _ \\ / ___\\_  __ \\_/ __ \\ 
+  |    |  \\ \\___  (  <_> ) /_/  >  | \\/\\  ___/ 
+  |____|__ \\/ ____|\\____/\\___  /|__|    \\___  >
+  \\/\\/          /_____/             \\/
+  `)
+  
+  console.log('\nWelcome to Kyogre.\n')
+  await cli()
+  mongoose.connection.close()
+  console.log('out')
+})
