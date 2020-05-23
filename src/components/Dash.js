@@ -39,7 +39,6 @@ export default function Dash() {
     if (e.target.classList.contains('black-text')) return history.push('/tenet')
     if (!tenetButtonShow) return e.target.classList.add('black-text', 'fadeIn')
     setTenetButtonShow(true)
-
   }
 
   // Will need to call API to get info for this page.
@@ -64,7 +63,7 @@ export default function Dash() {
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>
         <div className="button-container">
-          <h4 className="div-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
+          <h4 className="qotd-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
           <h4 className="random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
       </div>

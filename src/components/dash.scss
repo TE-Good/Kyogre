@@ -39,12 +39,13 @@
   justify-content: center;
   align-items: center;
 }
-.random-quote-icon, .div-button {
+
+.random-quote-icon, .qotd-button {
   cursor: pointer;
   padding: 0 1vw 0 1vw;
 }
 
-.random-quote-icon:hover, .div-button:hover {
+.random-quote-icon:hover, .qotd-button:hover {
   color: black
 }
 
@@ -60,4 +61,15 @@
 
 .black-text {
   color: black;
+}
+
+@media only screen and (max-width: 450px) {
+  .quote-text {
+    font-size: 80%;
+  }
+  
+  .quote-author {
+    font-size: 80%;
+    transform: translateX(12vw) translateY(10vh);
+  }
 }
