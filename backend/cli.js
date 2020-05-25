@@ -85,5 +85,4 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, asy
   console.log('\nWelcome to Kyogre.\n')
   await cli()
   mongoose.connection.close()
-  console.log('out')
 })

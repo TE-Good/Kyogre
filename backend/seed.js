@@ -3,6 +3,7 @@ const Quote = require('./model')
 const dbURI = require('./enviro')
 const quotes = require('./quotes')
 
+process.env.MONGODBATLASURI ? console.log('Connecting to MongoDB Atlas...') : console.log('Connect to local MongoDB.')
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
   process.env.MONGODBATLASURI ? console.log('Connected to MongoDB Atlas.') : console.log('Connect to local MongoDB.')
   if (err) return console.log('initial:', err)
