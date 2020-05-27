@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "dotenv-webpack": "^1.8.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
     "nodemon": "^2.0.2",
@@ -32,7 +33,6 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "dotenv": "^8.2.0",
-    "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "inquirer": "^7.1.0",
     "moment": "^2.24.0",
