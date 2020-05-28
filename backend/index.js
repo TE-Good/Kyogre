@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const app = express()
-const port = '8000'
 const dbURI = require('./enviro')
 const Quote = require('./model')
 
@@ -14,6 +13,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () 
 
 // JSON parser middleware (only needed for passing HTTP request body)
 // app.use(express.json())
+
+app.use(express.static(`${__dirname}/dist`))
 
 // HTTP method & route call log
 app.use((req, res, next) => {
@@ -43,4 +44,4 @@ app.use('/api', router)
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 
 // Express connection log
-app.listen(port, () => console.log(`Receiving on port ${port}`))
+app.listen(port, () => console.log(`Receiving on port ${process.env.PORT}`))

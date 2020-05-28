@@ -7,7 +7,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve('dist'),
+    // path: path.resolve('dist'),
+    path: __dirname,
     // Fixes the refresh problem
     publicPath: '/'
   },
