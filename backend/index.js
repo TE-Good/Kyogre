@@ -42,7 +42,7 @@ router.route('/random_quote').get(randomQuote)
 
 app.use('/api', router)
 
-WHAT DOES sendFile DO?
+// WHAT DOES sendFile DO?
 app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
 
 // Routes & Controllers
