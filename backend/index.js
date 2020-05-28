@@ -42,8 +42,8 @@ router.route('/random_quote').get(randomQuote)
 
 app.use('/api', router)
 
-// WHAT DOES sendFile DO?
-// app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
+WHAT DOES sendFile DO?
+app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
 
 // Routes & Controllers
 // app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
