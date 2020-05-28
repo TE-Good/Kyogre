@@ -7,6 +7,7 @@ require('dotenv').config()
 const app = express()
 const dbURI = require('./enviro')
 const Quote = require('./model')
+const port = process.env.PORT
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
@@ -44,4 +45,4 @@ app.use('/api', router)
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 
 // Express connection log
-app.listen(port, () => console.log(`Receiving on port ${process.env.PORT}`))
+app.listen(port, () => console.log(`Receiving on port ${port}`))
