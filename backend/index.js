@@ -7,7 +7,6 @@ require('dotenv').config()
 const app = express()
 const dbURI = require('./enviro')
 const Quote = require('./model')
-const port = process.env.PORT
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
@@ -15,7 +14,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () 
 // JSON parser middleware (only needed for passing HTTP request body)
 // app.use(express.json())
 
-app.use(express.static(`${__dirname}/dist`))
+// Used process.cwd() instead of __dirname. 
+// Because the former gives the root directory of where the node script was run, where the later gives you the local of the file where its run.
+app.use(express.static(`${process.cwd()}/dist`))
 
 // HTTP method & route call log
 app.use((req, res, next) => {
@@ -40,9 +41,12 @@ router.route('/random_quote').get(randomQuote)
 
 app.use('/api', router)
 
+// WHAT DOES sendFile DO?
+// app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
+
 // Routes & Controllers
 // app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 
 // Express connection log
-app.listen(port, () => console.log(`Receiving on port ${port}`))
+app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}`))

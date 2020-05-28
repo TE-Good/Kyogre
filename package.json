@@ -10,7 +10,7 @@
     "seed": "node backend/seed.js",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack -p",
-    "dev": "node backend/index.js"
+    "dev": "node backend/index"
   },
   "author": "",
   "license": "ISC",
