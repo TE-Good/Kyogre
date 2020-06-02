@@ -50,5 +50,6 @@ app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
 // app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 
+console.log(PORT)
 // Express connection log
 app.listen(PORT, host, () => console.log(`Receiving on port ${PORT}`))
