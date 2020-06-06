@@ -13,9 +13,9 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path='/' component={Front} />
         <Route path='/dash' component={Dash} />
         <Route path='/tenet' component={Tenet} />
-        <Route exact path='/' component={Front} />
       </Switch>
     </Router>
   )
