@@ -8,8 +8,8 @@ require('dotenv').config()
 const app = express()
 const dbURI = require('./enviro')
 const Quote = require('./model')
-const PORT = process.env.PORT || 8000
-const host = PORT === 8000 ? "http://localhost" : "0.0.0.0"
+const PORT = process.env.PORT
+const HOST = process.env.HOST ? process.env.HOST : "0.0.0.0"
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
