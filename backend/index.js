@@ -58,4 +58,4 @@ app.use('*', (req, res) => res.sendFile(path.join(__dirname, '..', '/dist/index.
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
 
 // Express connection log
-app.listen(PORT, host, () => console.log(`Receiving on port ${PORT}`))
+app.listen(PORT, HOST, () => console.log(`Receiving on port ${PORT}`))
