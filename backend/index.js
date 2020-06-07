@@ -9,7 +9,7 @@ const app = express()
 const dbURI = require('./enviro')
 const Quote = require('./model')
 const PORT = process.env.PORT
-const HOST = process.env.HOST ? process.env.HOST : "0.0.0.0"
+const HOST = "0.0.0.0"
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
@@ -42,7 +42,7 @@ async function randomQuote(req, res) {
   return res.send(quotes[Math.floor(Math.random() * quotes.length)])
 }
 
-// Router/Routes
+// Router/Routes 
 router.route('/quote').get(quoteOfTheDay)
 router.route('/random_quote').get(randomQuote)
 
