@@ -10,7 +10,8 @@
     "seed": "node backend/seed.js",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack -p",
-    "dev": "node backend/index"
+    "dev": "node backend/index",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
