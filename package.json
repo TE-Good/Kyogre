@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "front": "webpack-dev-server --open --mode development",
     "back": "nodemon backend/index.js",
     "cli": "node backend/cli.js",
     "seed": "node backend/seed.js",
-    "start": "webpack-dev-server --open --mode development",
     "build": "webpack -p",
-    "dev": "node backend/index"
+    "start": "node backend/index.js",
+    "heroku-postbuild": "webpack -p"
   },
   "author": "",
   "license": "ISC",
