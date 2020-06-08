@@ -3,7 +3,7 @@ const Quote = require('./model')
 const { dbURI, localDbURI } = require('./enviro')
 const quotes = require('./quotes')
 
-// MAKE A LOCAL AND ATLAS VERSIONS? OR DO BOTH?
+// MAKE A LOCAL AND ATLAS VERSIONS? OR DO BOTH? USE INQUIRER
 
 dbURI !== localDbURI ? console.log('Connecting to MongoDB Atlas...') : console.log('Connecting to local MongoDB.')
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {

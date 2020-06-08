@@ -9,6 +9,8 @@ const app = express()
 const { dbURI } = require('./enviro')
 const Quote = require('./model')
 
+// figure out how to use bash to use either a local or cloud DB. name change to server.js?
+
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
 

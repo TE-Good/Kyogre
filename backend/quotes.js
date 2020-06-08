@@ -413,7 +413,7 @@ const quotes = {
       'author': 'Albert Einstein'
     },
     {
-      'quote': 'An essential aspect of creativity is no being afraid to fail.',
+      'quote': 'An essential aspect of creativity is not being afraid to fail.',
       'author': 'Edwin Land'
     },
     {
