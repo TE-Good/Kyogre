@@ -10,8 +10,7 @@
     "cli": "node backend/cli.js",
     "seed": "node backend/seed.js",
     "build": "webpack -p",
-    "start": "node backend/index.js",
-    "heroku-postbuild": "webpack -p"
+    "start": "node backend/index.js"
   },
   "author": "",
   "license": "ISC",
