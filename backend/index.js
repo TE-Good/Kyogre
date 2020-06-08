@@ -6,7 +6,7 @@ const path = require('path')
 require('dotenv').config()
 
 const app = express()
-const dbURI = require('./enviro')
+const { dbURI } = require('./enviro')
 const Quote = require('./model')
 
 // Mongo connection and db connection log

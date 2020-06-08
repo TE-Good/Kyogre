@@ -213,7 +213,7 @@ const quotes = {
       'author': 'Elon Musk'
     },
     {
-      'quote': 'The way get started is to quit talking and begin doing.',
+      'quote': 'The way to get started is to quit talking and begin doing.',
       'author': 'Walt Disney'
     },
     {
