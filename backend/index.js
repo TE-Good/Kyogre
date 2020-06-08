@@ -9,7 +9,6 @@ const app = express()
 const dbURI = require('./enviro')
 const Quote = require('./model')
 const PORT = process.env.PORT
-const HOST = "0.0.0.0"
 
 // Mongo connection and db connection log
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
