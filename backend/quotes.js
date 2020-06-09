@@ -149,7 +149,7 @@ const quotes = {
       'author': 'John D. Rockefeller'
     },
     {
-      'quote': 'Twenty years from now you will be more disappointed by the things that you didn\'t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.',
+      'quote': 'So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.',
       'author': 'Mark Twain'
     },
     {
@@ -453,7 +453,7 @@ const quotes = {
       'author': 'Gary Henderson'
     },
     {
-      'quote': 'This is how you do it: You sit down at the keyboard and you put on word after another until it\'s done. It\'s that easy, and that hard.',
+      'quote': 'This is how you do it: You sit down at the keyboard and you one put word after another until it\'s done. It\'s that easy, and that hard.',
       'author': 'Neil Gaiman'
     },
     {
@@ -495,7 +495,35 @@ const quotes = {
     {
       'quote': 'My failure to sound like my hero\'s allowed me to sound like myself.',
       'author': 'John Mayer'
-    }
+    },
+    {
+      'quote': 'If it feels like it\'s you versus the world, chances are it\'s really just you versus yourself.',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'For many of us, our proudest achievements come in the face of the greatest adversity.',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'Don\'t just sit there. Do something. The answers will follow.',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'Action isn\'t the effect of motivation; it\'s also the cause of it.',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'Action -> Inspiration -> Motivation.',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'Ever noticed that sometimes when you care less about something, you do better at it?',
+      'author': 'Mark Manson'
+    },
+    {
+      'quote': 'One day, in retrospect, the years of struggle will strike you as the most beautiful',
+      'author': 'Sigmund Freud'
+    },
   ]
 }
 
