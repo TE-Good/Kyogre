@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 export default function Pin({ setTenetStage }) {
   const [combination, setCombination] = useState([])
 
@@ -8,7 +9,7 @@ export default function Pin({ setTenetStage }) {
     if (combination.includes(event.target.id)) return null
     
     // const pin = process.env.PIN.split(',').map(num => Number(num))
-    const pinString = process.env.HEROKU_PIN || process.env.PIN
+    const pinString = process.env.PIN_V2 || process.env.PIN
     const pin = pinString.split(',').map(num => Number(num))
 
     // Add new pin to combination

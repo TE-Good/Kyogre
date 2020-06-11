@@ -185,7 +185,7 @@ const quotes = {
       'author': 'Aristotle'
     },
     {
-      'quote': '“When I let go of what I am, I become what I might be.',
+      'quote': 'When I let go of what I am, I become what I might be.',
       'author': 'Lao Tzu'
     },
     {
@@ -521,9 +521,13 @@ const quotes = {
       'author': 'Mark Manson'
     },
     {
-      'quote': 'One day, in retrospect, the years of struggle will strike you as the most beautiful',
-      'author': 'Sigmund Freud'
+      'quote': 'Don\'t let your dreams be dreams.',
+      'author': 'Shia LaBeouf'
     },
+    {
+      'quote': 'Just do it.',
+      'author': 'Shia LaBeouf'
+    }
   ]
 }
 
