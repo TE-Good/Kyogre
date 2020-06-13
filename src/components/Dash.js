@@ -35,7 +35,6 @@ export default function Dash() {
   }, [])
 
   function handleTenetButton(e) {
-    console.log('test', e.target.classList)
     if (e.target.classList.contains('black-text')) return history.push('/tenet')
     if (!tenetButtonShow) return e.target.classList.add('black-text', 'fadeIn')
     setTenetButtonShow(true)

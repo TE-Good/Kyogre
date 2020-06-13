@@ -10,6 +10,7 @@ import Tenet from './components/Tenet'
 import './styles.scss'
 
 function App() {
+  console.log(process.env.REACT_APP_TEST)
   return (
     <Router>
       <Switch>
