@@ -48,12 +48,14 @@ module.exports = {
     }
   },
   plugins: [
-    new DotEnv(),
+    new DotEnv({
+      systemvars: true
+    }),
     // Points at the html file
     new HtmlWebpackPlugin({ 
       template: './src/index.html', 
       filename: 'index.html', 
       favicon: './src/assets/favicon-32x32.png'
-    })
+    }),
   ]
 }

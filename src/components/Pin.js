@@ -10,9 +10,7 @@ export default function Pin({ setTenetStage }) {
     // Don't add number if it's already been clicked
     if (combination.includes(event.target.id)) return null
     
-    // const pin = process.env.PIN.split(',').map(num => Number(num))
-    const pinString = process.env.PIN_V2 || process.env.PIN
-    const pin = pinString.split(',').map(num => Number(num))
+    const pin = process.env.PIN.split(',').map(num => Number(num))
 
     // Add new pin to combination
     const newCombination = [...combination, Number(event.target.id) + 1]
