@@ -14,6 +14,7 @@ module.exports = {
     rules: [ 
       // Initialising the babel loader
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      // Not needed owing to html plugin
       // { test: /\.html$/, loader: 'html-loader' },
       // Initialising the css loader to allow css files to be used
       {

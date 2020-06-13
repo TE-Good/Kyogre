@@ -43,6 +43,7 @@
 .random-quote-icon, .qotd-button {
   cursor: pointer;
   padding: 0 1vw 0 1vw;
+  user-select: none;
 }
 
 .random-quote-icon:hover, .qotd-button:hover {

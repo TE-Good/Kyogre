@@ -40,21 +40,7 @@ export default function Dash() {
     setTenetButtonShow(true)
   }
 
-  // Will need to call API to get info for this page.
-  // IDEA: Have TENET move up and then the tenet appear underneath. Or have
-  // it clickable to reveal?
 
-  // MAP //
-  // INTRO NAME & IMAGE
-  // ADD ANIMATIONS TO QUOTES APPEARING AND GOING
-  // ADD UNDERLINE TO QUOTE OF THE DAY OR RANDOM ICON DEPENDING ON WHATS SHOWN
-  // ADD MY BUTTON TO NAV TO A NEW PAGE WITH PIN - WHICH HOLDS THE TENET
-  // ADD MONGODB AND STORE QUOTES
-  
-  // BUGS //
-  // BUTTONS MOVE DOWN WHEN THERES TWO LINES TO THE QUOTES - FIX THE BUTTON LOCATION
-  // - OR ~ INFRONT OF AUTHOR?
-  // MAKE PINS RESPONSIVE - MAKE PIN 3x3 ?
   return (
     <>
       <i className="tenet-button fab fa-superpowers animated" onClick={e => handleTenetButton(e)}></i>
