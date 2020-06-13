@@ -4,8 +4,6 @@ import React, { useState } from 'react'
 export default function Pin({ setTenetStage }) {
   const [combination, setCombination] = useState([])
 
-  console.log(process.env.REACT_APP_TEST)
-
   function handleCombination(event) {
     // Don't add number if it's already been clicked
     if (combination.includes(event.target.id)) return null

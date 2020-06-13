@@ -49,6 +49,7 @@ module.exports = {
   },
   plugins: [
     new DotEnv({
+      // Allows for heroku envs to be used in the frontend
       systemvars: true
     }),
     // Points at the html file
