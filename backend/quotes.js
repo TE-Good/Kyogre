@@ -527,8 +527,59 @@ const quotes = {
     {
       'quote': 'Just do it.',
       'author': 'Shia LaBeouf'
+    }, 
+    {
+      'quote': 'Aspiring artists defeated by Resistance share one trait. They all think like amateurs. They have not yet turned pro.',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'I write only when inspiration strikes. Fortunately it strikes every morning at nine o\'clock sharp.',
+      'author': 'Somerset Maugham'
+    }, 
+    {
+      'quote': 'The most important thing about art is to work. Nothing else matters except sitting down every day and trying.',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'If I were the last person on earth, would I still do it?',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'It\'s not the writing part that\'s hard. Whats hard is the sitting fown to write.',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'Resistance is the enemy within.',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'Habits are like a cable. We weave a strand of it every day and soon it cannot be broken.',
+      'author': 'Horace Mann'
+    }, 
+    {
+      'quote': 'Remember our rule of thumb: The more scared we are of a work or calling, the more sure we can be taht we have to do it.',
+      'author': 'Steven Pressfield'
+    }, 
+    {
+      'quote': 'Success is on the far side of failure.',
+      'author': 'T. J. Watson'
+    }, 
+    {
+      'quote': 'Everything worthwhile in life is won through surmouting the associated negative experience.',
+      'author': 'Mark Manson'
     }
   ]
 }
+
+const retiredQuotes = [
+  {
+    'quote': 'Twenty years from now you will be more disappointed by the things that you didn\'t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.',
+    'author': 'Mark Twain'
+  },
+  {
+    'quote': 'True happiness occurs only when you find the problems you enjoy having and enjoy solving.',
+    'author': 'Mark Manson'
+  }
+]
 
 module.exports = quotes
