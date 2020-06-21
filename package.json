@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "front": "webpack-dev-server --open --mode development",
-    "back": "nodemon backend/index.js",
+    "back": "nodemon backend/server.js",
     "cli": "node backend/cli.js",
     "seed": "node backend/seed.js",
     "build": "webpack -p",
-    "start": "node backend/index.js"
+    "start": "node backend/server.js"
   },
   "author": "",
   "license": "ISC",
