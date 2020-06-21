@@ -5,14 +5,22 @@ const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config()
 
-const app = express()
-const { dbURI } = require('./enviro')
+const { dbURI, localDbURI } = require('./enviro')
 const Quote = require('./model')
+const app = express()
 
-// figure out how to use bash to use either a local or cloud DB. name change to server.js?
+// Use --local to use a local version of the database
+const localFlag = process.env.npm_config_argv.includes('--local')
+const currentDbURI = !localFlag ? localDbURI : dbURI
 
 // Mongo connection and db connection log
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Mongo connected.'))
+console.log(`Connecting to ${!localFlag ? 'MongoDB Atlas': 'Local MongoDB'}...`)
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+  // Connection notification
+  console.log(`Connected to ${!localFlag ? 'MongoDB Atlas': 'Local MongoDB'}.`)
+  // Express connection log
+  app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}.`))
+})
 
 
 // Middleware
@@ -56,6 +64,3 @@ app.use('*', (req, res) => res.sendFile(path.join(__dirname, '..', '/dist/index.
 // Routes & Controllers
 // app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
 // app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))
-
-// Express connection log
-app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}`))
