@@ -1,4 +1,4 @@
-// Models
+// Models Module
 const mongoose = require('mongoose')
 
 // Defining schema

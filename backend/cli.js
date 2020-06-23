@@ -5,9 +5,9 @@ const moment = require('moment')
 require('dotenv').config()
 
 const Quote = require('./model')
-const dbURI = require('./enviro')
+const { flagCheckLocal } = require('./enviro')
 
-// Tenet
+const URI = flagCheckLocal()
 const tenet = `
 TENET
 =====
@@ -71,7 +71,7 @@ async function cli() {
   }
 }
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err) => {
+mongoose.connect(URI.currentDbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err) => {
   if (err) return console.log('initial:', err)
   console.log(`
   ____  __.                                   

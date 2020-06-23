@@ -1,3 +1,5 @@
+// Quotes Module
+
 const quotes = {
   'quotes': [
     {
