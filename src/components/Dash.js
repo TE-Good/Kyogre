@@ -35,15 +35,15 @@ export default function Dash() {
   }, [])
 
   function handleTenetButton(e) {
-    if (e.target.classList.contains('black-text')) return history.push('/tenet')
-    if (!tenetButtonShow) return e.target.classList.add('black-text', 'fadeIn')
+    if (!e.target.classList.contains('opacity')) return history.push('/tenet')
+    if (!tenetButtonShow) return e.target.classList.remove('opacity', 'fadeIn')
     setTenetButtonShow(true)
   }
 
 
   return (
     <>
-      <i className="tenet-button fab fa-superpowers animated" onClick={e => handleTenetButton(e)}></i>
+      <i className="tenet-button fab fa-superpowers animated opacity" onClick={e => handleTenetButton(e)}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>

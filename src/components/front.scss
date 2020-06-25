@@ -18,6 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: $main_color;
 }
 
 .front-bottom {
@@ -26,7 +28,7 @@
 
   font-size: 150%;
 
-  color: grey;
+  color: $secondary_color;
 
   display: flex;
   justify-content: center;
@@ -39,7 +41,7 @@
 
 .fa-forward:hover {
   cursor: pointer;
-  color: black;
+  color: $main_color;
 }
 
 @media only screen and (max-width: 450px) {

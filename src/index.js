@@ -43,6 +43,7 @@ function App() {
         <Route exact path='/' component={Front} />
         <Route path='/dash' component={Dash} />
         <Route path='/tenet' component={Tenet} />
+        <i class="fas fa-adjust"></i>
       </Switch>
     </Router>
   )

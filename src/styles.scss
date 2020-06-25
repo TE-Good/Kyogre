@@ -1,15 +1,32 @@
+// Color Palette
+$dark_mode: false;
+
+$main_color: black;
+$secondary_color: grey;
+$background_color: white;
+
+@if $dark_mode == true {
+  $main_color: rgba(255, 255, 255, 0.904);
+  $secondary_color: grey;
+  $background_color: rgba(0, 0, 0, 0.842);
+}
+
+
+// Page Styles
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 @import './components/front.scss';
 @import './components/dash.scss';
 @import './components/tenet.scss';
 @import './components/pin.scss';
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 3px;
+  background: $background_color
 }
 
 #container {
