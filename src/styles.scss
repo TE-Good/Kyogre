@@ -41,3 +41,26 @@ body {
 .hidden {
   display: none;
 }
+
+.color-mode-wrapper {
+  position: fixed;
+  pointer-events: none;
+
+  display: flex;
+  align-items: flex-end;
+
+  height: 100%;
+  width: 100%;
+
+  i {
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    bottom: 3%;
+    left: 3%;
+
+    color: $main_color;
+    font-size: 1.2rem;
+    opacity: 0.2;
+  }
+}
