@@ -34,6 +34,10 @@ const kyogre = `
 const note = `Thanks for taking a look at Kyogre Quotes!
 Made by https://github.com/TE-Good.`
 
+function colorMode() {
+  console.log(document.querySelector('body'))
+}
+
 function App() {
   console.log(kyogre)
   console.log(note)
@@ -45,7 +49,7 @@ function App() {
         <Route path='/tenet' component={Tenet} />
       </Switch>
       <div className="color-mode-wrapper">
-        <i class="fas fa-adjust"></i>
+        <i className="fas fa-adjust" onClick={colorMode}></i>
       </div>
     </Router>
   )
