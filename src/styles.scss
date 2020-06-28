@@ -101,3 +101,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .color-mode-wrapper {
+    i {
+      bottom: 5%;
+      left: 10%;
+    }
+  }
+}
+
