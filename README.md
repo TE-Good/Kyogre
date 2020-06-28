@@ -5,12 +5,12 @@
 
 ### About
 
-Kyogre is a displays (mostly) motiviational quotes through a the website http://kyogre-quotes.herokuapp.com/, or thorugh the cli.
+Kyogre is a displays (mostly) motiviational quotes through a the website http://kyogre-quotes.herokuapp.com/, or thorugh the CLI.
 
 ### How to use
 
 Once the repo is cloned;
 
-* To access the cli version, run `npm run cli`.
+* To access the CLI version, run `npm run cli`.
 * To run the front end and back end seperately, run `npm run front` & `npm run back`.
 
