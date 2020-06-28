@@ -48,8 +48,8 @@ export default function Dash() {
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>
         <div className="button-container secondary-color">
-          <h4 className="qotd-button dark-theme-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
-          <h4 className="random-quote-icon dark-theme-button" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+          <h4 className="qotd-button light-theme-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
+          <h4 className="random-quote-icon light-theme-button" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
-export default function Pin({ setTenetStage }) {
+export default function Pin({ setTenetStage, darkTheme, switchToLightTheme, switchToDarkTheme }) {
   const [combination, setCombination] = useState([])
 
   function handleCombination(event) {
@@ -31,11 +31,17 @@ export default function Pin({ setTenetStage }) {
     }
   }
 
+  // Ensure the pins are set to the right color
+  useEffect(() => {
+    if (!darkTheme) switchToDarkTheme()
+    if (darkTheme) switchToLightTheme()
+  },[])
+
   return (
     <div className="pin-grid animated fadeIn slow"> 
       {[...Array(12)].map((num, i) => (
         <div key={i} className="pin-container">
-          <div id={i} className="pin dark-theme-pin" onClick={handleCombination}></div>
+          <div id={i} className="pin light-theme-pin" onClick={handleCombination}></div>
         </div>
       ))}
     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import '@babel/polyfill'
@@ -34,22 +34,52 @@ const kyogre = `
 const note = `Thanks for taking a look at Kyogre Quotes!
 Made by https://github.com/TE-Good.`
 
-function colorMode() {
-  console.log(document.querySelector('body'))
-}
-
 function App() {
-  console.log(kyogre)
-  console.log(note)
+  const [darkTheme, setDarkTheme] = useState(false)
+  const lightThemeClasses = ['light-theme', 'light-theme-button', 'light-theme-pin']
+  const darkThemeClasses = ['dark-theme', 'dark-theme-button', 'dark-theme-pin']
+
+  useEffect(() => {
+    console.log(kyogre)
+    console.log(note)
+  },[])
+
+  useEffect(() => {
+    if (!darkTheme) switchToDarkTheme()
+    else switchToLightTheme()
+  }, [darkTheme])
+
+  function switchToLightTheme() {
+    lightThemeClasses.forEach((cl, i) => {
+      const nodes = document.querySelectorAll(`.${cl}`)
+      nodes.forEach(node => {
+        node.classList.remove(`${cl}`)
+        node.classList.add(`${darkThemeClasses[i]}`)
+      })
+    })
+  }
+  function switchToDarkTheme() {
+    darkThemeClasses.forEach((cl, i) => {
+      const nodes = document.querySelectorAll(`.${cl}`)
+      nodes.forEach(node => {
+        node.classList.remove(`${cl}`)
+        node.classList.add(`${lightThemeClasses[i]}`)
+      })
+    })
+  }
+
   return (
     <Router>
       <Switch>
         <Route exact path='/' component={Front} />
         <Route path='/dash' component={Dash} />
-        <Route path='/tenet' component={Tenet} />
+        {/* <Route path='/tenet' component={Tenet} /> */}
+        <Route path='/tenet' render={() => (
+          <Tenet darkTheme={darkTheme} switchToLightTheme={switchToLightTheme} switchToDarkTheme={switchToDarkTheme} />
+        )}/>
       </Switch>
       <div className="color-mode-wrapper">
-        <i className="fas fa-adjust" onClick={colorMode}></i>
+        <i className="fas fa-adjust" onClick={() => setDarkTheme(!darkTheme)}></i>
       </div>
     </Router>
   )
