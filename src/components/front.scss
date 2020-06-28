@@ -10,25 +10,18 @@
 .front-main {
   height: 75%;
   width: 100%;
-
   transform: translateY(5vh);
-
   font-size: 400%;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  color: $main_color;
 }
 
 .front-bottom {
   height: 25%;
   width: 100%;
-
   font-size: 150%;
-
-  color: $secondary_color;
 
   display: flex;
   justify-content: center;
@@ -36,12 +29,8 @@
 }
 
 .fa-forward {
-  transform: translateY(-6vh);
-}
-
-.fa-forward:hover {
   cursor: pointer;
-  color: $main_color;
+  transform: translateY(-6vh);
 }
 
 @media only screen and (max-width: 450px) {

@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: $main_color;
 }
 
 /***********/
@@ -23,11 +22,6 @@
   top: 4vh;
   left: 3vw;
   cursor: pointer;
-  color: $secondary_color;
-}
-
-.tenet-back:hover {
-  color: $main_color;
 }
 
 @media only screen and (max-width: 450px) {

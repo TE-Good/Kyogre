@@ -18,7 +18,7 @@ export default function Front() {
         <h1 className={`animated ${fadeIn ? 'fadeIn' : 'fadeOut'}`}>KYOGRE</h1>
       </div>
       <div className="front-bottom animated fadeIn">
-        <i className="fas fa-forward" onClick={() => history.push('/dash')}></i>
+        <i className="fas fa-forward dark-theme-button" onClick={() => history.push('/dash')}></i>
       </div>
     </div>
   )

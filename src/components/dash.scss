@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: $main_color;
+  // color: $main_color;
 }
 
 // Quote Text
@@ -34,7 +34,6 @@
   height: 10vh;
   width: 100%;
   transform: translateY(25vh);
-  color: $secondary_color;
 
   display: flex;
   justify-content: center;
@@ -47,10 +46,6 @@
   user-select: none;
 }
 
-.random-quote-icon:hover, .qotd-button:hover {
-  color: $main_color;
-}
-
 .tenet-button {
   position: absolute;
   top: 10vh;
@@ -58,7 +53,6 @@
   font-size: 300%;
   z-index: 1;
   cursor: pointer;
-  color: $secondary_color;
 }
 
 .opacity {

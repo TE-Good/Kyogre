@@ -43,13 +43,13 @@ export default function Dash() {
 
   return (
     <>
-      <i className="tenet-button fab fa-superpowers animated opacity" onClick={e => handleTenetButton(e)}></i>
+      <i className="tenet-button fab fa-superpowers secondary-color animated opacity" onClick={e => handleTenetButton(e)}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>
-        <div className="button-container">
-          <h4 className="qotd-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
-          <h4 className="random-quote-icon" onClick={handleClick}><i className="fas fa-dice"></i></h4>
+        <div className="button-container secondary-color">
+          <h4 className="qotd-button dark-theme-button" onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
+          <h4 className="random-quote-icon dark-theme-button" onClick={handleClick}><i className="fas fa-dice"></i></h4>
         </div>
       </div>
     </>

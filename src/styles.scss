@@ -5,10 +5,45 @@ $main_color: black;
 $secondary_color: grey;
 $background_color: white;
 
-@if $dark_mode == true {
-  $main_color: rgba(255, 255, 255, 0.904);
-  $secondary_color: grey;
-  $background_color: rgba(0, 0, 0, 0.842);
+$main_color_dark: rgba(255, 255, 255, 0.904);
+$secondary_color_dark: grey;
+$background_color_dark: rgba(0, 0, 0, 0.842);
+// @if $dark_mode == true {
+//   $main_color_dark: rgba(255, 255, 255, 0.904);
+//   $secondary_color_dark: grey;
+//   $background_color_dark: rgba(0, 0, 0, 0.842);
+// }
+
+
+// Light Theme
+.light-theme {
+  color: $main_color;
+  background: $background_color;
+}
+.light-theme-button {
+  color: $secondary_color;
+}
+.light-theme-button:hover {
+  color: $main_color;
+}
+.light-theme-pin {
+  cursor: pointer;
+  background: $main_color;
+}
+// Dark Theme
+.dark-theme {
+  color: $main_color_dark;
+  background: $background_color_dark;
+}
+.dark-theme-button {
+  color: $secondary_color;
+}
+.dark-theme-button:hover {
+  color: $main_color_dark;
+}
+.dark-theme-pin {
+  cursor: pointer;
+  background: $main_color_dark;
 }
 
 
@@ -26,7 +61,6 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 3px;
-  background: $background_color
 }
 
 #container {
@@ -56,11 +90,14 @@ body {
     position: relative;
     pointer-events: auto;
     cursor: pointer;
+
     bottom: 3%;
     left: 3%;
-
-    color: $main_color;
     font-size: 1.2rem;
     opacity: 0.2;
   }
+  i:hover {
+    opacity: 0.5;
+  }
 }
+

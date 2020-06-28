@@ -11,7 +11,7 @@ export default function Tenet() {
 
   return (
     <div className="tenet-container">
-      <i className="tenet-back animated fadeIn fas fa-arrow-left" onClick={() => handleBackClick()}></i>
+      <i className="tenet-back dark-theme-button animated fadeIn fas fa-arrow-left" onClick={() => handleBackClick()}></i>
       {!tenetStage && <Pin setTenetStage={setTenetStage}/>}
       {tenetStage &&
         process.env.TENET.split('/ ').map((line, i) => (
