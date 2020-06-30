@@ -388,7 +388,7 @@ const quotes = {
     },
     {
       'quote': 'Great things are done by a series of small things brought together.',
-      'author': 'Vincent Van gogh'
+      'author': 'Vincent Van Gogh'
     },
     {
       'quote': 'Inspiriation comes and goes, creativity is the results of practice.',
@@ -547,7 +547,7 @@ const quotes = {
       'author': 'Steven Pressfield'
     }, 
     {
-      'quote': 'It\'s not the writing part that\'s hard. Whats hard is the sitting fown to write.',
+      'quote': 'It\'s not the writing part that\'s hard. What\'s hard is the sitting fown to write.',
       'author': 'Steven Pressfield'
     }, 
     {

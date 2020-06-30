@@ -73,7 +73,6 @@ function App() {
       <Switch>
         <Route exact path='/' component={Front} />
         <Route path='/dash' component={Dash} />
-        {/* <Route path='/tenet' component={Tenet} /> */}
         <Route path='/tenet' render={() => (
           <Tenet darkTheme={darkTheme} switchToLightTheme={switchToLightTheme} switchToDarkTheme={switchToDarkTheme} />
         )}/>
