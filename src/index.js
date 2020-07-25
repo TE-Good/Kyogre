@@ -31,11 +31,13 @@ const kyogre = `
      'x0Od;,oKXKx;.                                         
       ...  'xK0o.                                                                                                                 
 `
-const note = `Thanks for taking a look at Kyogre Quotes!
-Made by https://github.com/TE-Good.`
+const note = `
+Thanks for taking a look at Kyogre Quotes!
+Made by https://github.com/TE-Good.
+ `
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false)
+  const [darkTheme, setDarkTheme] = useState(true)
   const lightThemeClasses = ['light-theme', 'light-theme-button', 'light-theme-pin']
   const darkThemeClasses = ['dark-theme', 'dark-theme-button', 'dark-theme-pin']
 
