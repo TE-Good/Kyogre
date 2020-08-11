@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import '@babel/polyfill'
+
+import store from './redux/store'
 
 import Front from './components/Front'
 import Dash from './components/Dash'
@@ -86,4 +89,8 @@ function App() {
   )
 }
 
-render(<App />, document.getElementById('container'))
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  document.getElementById('container'))
