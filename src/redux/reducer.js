@@ -1,5 +1,4 @@
-import GET_QUOTE from './actions'
-import { combineReducers } from 'redux'
+import { GET_QUOTE } from './actions'
 
 const intialState = {
   quote: '',
