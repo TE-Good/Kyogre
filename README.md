@@ -13,5 +13,6 @@ Once the repo is cloned;
 
 * To access the CLI version, run `npm run cli`.
 * To run the front end and back end seperately, run `npm run front` & `npm run back`.
-* To seed the database run `npm run seed`, this will seed the cloud database (Mongo Atlas). You will need to create an appropriate object/file to run it. There is also the `--local` flag that can be added to seed a local mongo database, should you not have interet. 
+  * You can run `npm run back --local` to run off the local mongo database.
+* To seed the database run `npm run seed`, this will seed the cloud database (Mongo Atlas). You will need to create an appropriate object/file to run it.
 
