@@ -24,7 +24,7 @@ export default function Dash() {
   // }
 
   function getQuoteOfTheDay() {
-    dispatch(getQuote())
+    getQuote()
     // setQuote(data) // replace this by directly using storeQuote.quote & storeQuote.author in the JSX
   }
 
