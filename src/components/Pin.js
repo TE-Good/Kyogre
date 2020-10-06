@@ -1,47 +1,66 @@
 import React, { useState, useEffect } from 'react'
+import isEqual from 'lodash.isequal'
 
 
 export default function Pin({ setTenetStage, darkTheme, switchToLightTheme, switchToDarkTheme }) {
-  const [combination, setCombination] = useState([])
+  const [combination, setCombination] = useState(new Set())
+  const pinCombination = new Set(process.env.PIN.split(',').map(num => Number(num)))
+
+  // function handleCombination(event) {
+  //   // Don't add number if it's already been clicked
+  //   if (combination.includes(event.target.id)) return null
+
+  //   const pin = process.env.PIN.split(',').map(num => Number(num))
+
+  //   // Add new pin to combination
+  //   const newCombination = [...combination, Number(event.target.id) + 1]
+  //   event.target.classList.add('grey')
+  //   setCombination(newCombination)
+
+  //   // If the correct pins are chosen, navigate to the next page
+  //   if (newCombination.length === pin.length && [...new Set([...pin, ...newCombination])].length === pin.length) {
+  //     event.target.parentNode.parentNode.classList.remove('fadeIn')
+  //     event.target.parentNode.parentNode.classList.remove('slow')
+  //     event.target.parentNode.parentNode.classList.add('fadeOut')
+  //     setTimeout(() => setTenetStage(true), 500)
+  //   }
+
+  //   // Resetting the pins
+  //   if (newCombination.length === pin.length) {
+  //     setCombination([])
+  //     const target = event.target.parentNode.parentNode.childNodes
+  //     setTimeout(() => target.forEach(div => div.childNodes[0].classList = 'pin'), 500)
+  //   }
+  // }
+
 
   function handleCombination(event) {
-    // Don't add number if it's already been clicked
-    if (combination.includes(event.target.id)) return null
-    
-    const pin = process.env.PIN.split(',').map(num => Number(num))
 
-    // Add new pin to combination
-    const newCombination = [...combination, Number(event.target.id) + 1]
-    event.target.classList.add('grey')
+    // User input pin
+    const pinInput = Number(event.target.id)
+    const newCombination = new Set([...combination, pinInput])
     setCombination(newCombination)
 
-    // If the correct pins are chosen, navigate to the next page
-    if (newCombination.length === pin.length && [...new Set([...pin, ...newCombination])].length === pin.length) {
-      event.target.parentNode.parentNode.classList.remove('fadeIn')
-      event.target.parentNode.parentNode.classList.remove('slow')
-      event.target.parentNode.parentNode.classList.add('fadeOut')
-      setTimeout(() => setTenetStage(true), 500)
-    }
-
-    // Resetting the pins
-    if (newCombination.length === pin.length) {
-      setCombination([])
-      const target = event.target.parentNode.parentNode.childNodes
-      setTimeout(() => target.forEach(div => div.childNodes[0].classList = 'pin'), 500)
+    // Completion
+    if (newCombination.size === pinCombination.size) {
+      if (isEqual(pinCombination, newCombination)) console.log('EQUAL')
+      else console.log('NOT EQUAL')
     }
   }
+  console.log(pinCombination)
+  console.log(combination)
 
   // Ensure the pins are set to the right color
   useEffect(() => {
     if (!darkTheme) switchToDarkTheme()
     if (darkTheme) switchToLightTheme()
-  },[])
+  }, [])
 
   return (
-    <div className="pin-grid animated fadeIn slow"> 
+    <div className="pin-grid animated fadeIn slow">
       {[...Array(12)].map((num, i) => (
         <div key={i} className="pin-container">
-          <div id={i} className="pin light-theme-pin" onClick={handleCombination}></div>
+          <div id={i} className={`pin light-theme-pin ${combination.has(i) ? 'grey' : null}`} onClick={handleCombination}></div>
         </div>
       ))}
     </div>
