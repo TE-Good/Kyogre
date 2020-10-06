@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getQuote } from '../redux/actions'
+import getQuote from '../redux/actions'
 
 export default function Dash() {
   const history = useHistory()
@@ -17,15 +17,11 @@ export default function Dash() {
     getRandomQuote()
   }
 
-  // async function getQuoteOfTheDay() {
-  //   const response = await fetch('/api/quote')
-  //   const data = await response.json()
-  //   setQuote(data)
-  // }
-
-  function getQuoteOfTheDay() {
-    getQuote()
-    // setQuote(data) // replace this by directly using storeQuote.quote & storeQuote.author in the JSX
+  async function getQuoteOfTheDay() {
+    const response = await fetch('/api/quote')
+    const data = await response.json()
+    // dispatch to store
+    setQuote(data) // replace this by directly using storeQuote.quote & storeQuote.author in the JSX
   }
 
   async function getRandomQuote() {
