@@ -1,5 +1,4 @@
 import GET_QUOTE from './actions'
-import { combineReducers } from 'redux'
 
 const intialState = {
   quote: '',
@@ -14,6 +13,6 @@ const rootReducer = (state = intialState, action) => {
     }
   }
   return state
-}
+};
 
 export default rootReducer

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-
-import getQuote from '../redux/actions'
+// import { useDispatch, useSelector } from 'react-redux'
 
 export default function Dash() {
   const history = useHistory()
   const dispatch = useDispatch()
   const [quote, setQuote] = useState('')
   const [tenetButtonShow, setTenetButtonShow] = useState(false)
-
-  const storeQuote = useSelector(state => state)
-  console.log(storeQuote)
 
   function handleClick() {
     getRandomQuote()
@@ -20,8 +15,7 @@ export default function Dash() {
   async function getQuoteOfTheDay() {
     const response = await fetch('/api/quote')
     const data = await response.json()
-    // dispatch to store
-    setQuote(data) // replace this by directly using storeQuote.quote & storeQuote.author in the JSX
+    setQuote(data)
   }
 
   async function getRandomQuote() {
