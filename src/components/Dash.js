@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux'
 
 export default function Dash() {
   const history = useHistory()
-  const dispatch = useDispatch()
   const [quote, setQuote] = useState('')
   const [tenetButtonShow, setTenetButtonShow] = useState(false)
 
