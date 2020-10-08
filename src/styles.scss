@@ -8,12 +8,6 @@ $background_color: white;
 $main_color_dark: rgba(255, 255, 255, 0.904);
 $secondary_color_dark: grey;
 $background_color_dark: rgba(0, 0, 0, 0.842);
-// @if $dark_mode == true {
-//   $main_color_dark: rgba(255, 255, 255, 0.904);
-//   $secondary_color_dark: grey;
-//   $background_color_dark: rgba(0, 0, 0, 0.842);
-// }
-
 
 // Light Theme
 .light-theme {
@@ -28,7 +22,7 @@ $background_color_dark: rgba(0, 0, 0, 0.842);
 }
 .light-theme-pin {
   cursor: pointer;
-  background: $main_color_dark;
+  background: $main_color;
 }
 // Dark Theme
 .dark-theme {
@@ -64,6 +58,15 @@ body {
 }
 
 #container {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-wrapper {
   height: 100vh;
   width: 100vw;
 

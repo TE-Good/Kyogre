@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 
-export default function Front() {
+export default function Front({ darkTheme }) {
   const history = useHistory()
-
   const [fadeIn, setFadeIn] = useState(true)
+
+  const buttonThemeClass = darkTheme ? 'dark-theme-button' : 'light-theme-button'
 
   useEffect(() => {
     setTimeout(() => setFadeIn(false),2000)
@@ -18,7 +19,7 @@ export default function Front() {
         <h1 className={`animated ${fadeIn ? 'fadeIn' : 'fadeOut'}`}>KYOGRE</h1>
       </div>
       <div className="front-bottom animated fadeIn">
-        <i className="fas fa-forward light-theme-button" onClick={() => history.push('/dash')}></i>
+        <i className={`fas fa-forward ${buttonThemeClass}`} onClick={() => history.push('/dash')}></i>
       </div>
     </div>
   )
