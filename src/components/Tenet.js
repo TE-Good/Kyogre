@@ -10,7 +10,7 @@ export default function Tenet({ darkTheme }) {
   const buttonThemeClass = darkTheme ? 'dark-theme-button' : 'light-theme-button'
   
   const handleBackClick = () => history.push('/dash')
-  console.log(process.env.TENET)
+
   return (
     <div className="tenet-container">
       <i className={`tenet-back ${buttonThemeClass} animated fadeIn fas fa-arrow-left`} onClick={() => handleBackClick()}></i>
