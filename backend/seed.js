@@ -4,7 +4,7 @@ const inquirer = require('inquirer')
 
 const Quote = require('./model')
 const { dbURI, localDbURI } = require('./enviro')
-const quotes = require('./quotes')
+const quotes = require('../../quotes/quotes.json')
 
 async function seedPrompt() {
   const seedInput = await inquirer.prompt({
@@ -22,10 +22,13 @@ function seed(dbURI, locationName) {
   console.log(`Connecting to ${locationName}...`)
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
     console.log(`Connected to ${locationName}.`)
+
     if (err) return console.log('initial:', err)
+
     await db.dropDatabase()
     const dbPop = await Quote.create(quotes.quotes)
     console.log(`${dbPop.length} quotes seeded.`)
+    
     mongoose.connection.close()
   })
 }
