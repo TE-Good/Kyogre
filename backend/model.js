@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 // Defining schema
 const quoteSchema = new mongoose.Schema({
   quote: String,
-  author: String
+  author: String,
+  count: Number
 })
 
 // Building the quote model

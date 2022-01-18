@@ -4,7 +4,9 @@ const inquirer = require('inquirer')
 
 const Quote = require('./model')
 const { dbURI, localDbURI } = require('./enviro')
-const quotes = require('../../quotes/quotes.json')
+const quotesList = require('../../quotes/quotes.json')
+
+const { quotes } = quotesList;
 
 async function seedPrompt() {
   const seedInput = await inquirer.prompt({
@@ -26,11 +28,15 @@ function seed(dbURI, locationName) {
     if (err) return console.log('initial:', err)
 
     await db.dropDatabase()
-    const dbPop = await Quote.create(quotes.quotes)
+
+    const formattedQuotes = addCountToQuotes(quotes)
+    const dbPop = await Quote.create(formattedQuotes)
     console.log(`${dbPop.length} quotes seeded.`)
-    
+
     mongoose.connection.close()
   })
 }
+
+const addCountToQuotes = (quotes) => quotes.map(quote => ({ ...quote, count: 0 }));
 
 seedPrompt()
