@@ -5,7 +5,7 @@
 
 ### About
 
-Kyogre is a displays (mostly) motiviational quotes through a the website http://kyogre-quotes.herokuapp.com/, or through the CLI.
+Kyogre is a displays (mostly) motiviational quotes through a the website https://kyogre.onrender.com, or through the CLI.
 
 ### How to use
 
