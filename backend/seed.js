@@ -8,7 +8,7 @@ const quotesList = require('../../quotes/quotes.json')
 
 const { quotes } = quotesList;
 
-async function seedPrompt() {
+async function runSeedCLI() {
   const seedInput = await inquirer.prompt({
     type: 'list',
     name: 'input',
@@ -16,11 +16,11 @@ async function seedPrompt() {
     choices: ['Local MongoDB', 'Remote MongoDB Atlas']
   })
 
-  if (seedInput.input === 'Local MongoDB') return seed(localDbURI, 'Local MongoDB')
-  else return seed(dbURI, 'MongoDB Atlas')
+  if (seedInput.input === 'Local MongoDB') return seedDatabase(localDbURI, 'Local MongoDB')
+  else return seedDatabase(dbURI, 'MongoDB Atlas')
 }
 
-function seed(dbURI, locationName) {
+function seedDatabase(dbURI, locationName) {
   console.log(`Connecting to ${locationName}...`)
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
     console.log(`Connected to ${locationName}.`)
@@ -39,4 +39,4 @@ function seed(dbURI, locationName) {
 
 const addCountToQuotes = (quotes) => quotes.map(quote => ({ ...quote, count: 0 }));
 
-seedPrompt()
+runSeedCLI()

@@ -6,15 +6,15 @@ const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config()
 
-const { flagCheckLocal } = require('./enviro')
+const { getDatabaseInfo } = require('./enviro')
 const Quote = require('./model')
 
 const app = express()
-const URI = flagCheckLocal()
+const URI = getDatabaseInfo()
 
 // Mongo connection and db connection log //
 console.log(`Connecting to ${URI.name}...`)
-mongoose.connect(URI.currentDbURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect(URI.URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
   console.log(`Connected to ${URI.name}.`)
   app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}.`))
 })

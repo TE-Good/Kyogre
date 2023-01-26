@@ -1,15 +1,16 @@
-// Enviroment Settings Module
+// Environment Settings Module
 require('dotenv').config()
 
 const localDbURI = 'mongodb://localhost/kyogre'
-const dbURI = process.env.MONGODB_ATLAS_HEROKU_URI || process.env.MONGODB_ATLAS_URI || localDbURI
+const dbURI = process.env.MONGODB_ATLAS_URI || localDbURI
 
-// Use --local to use a local version of the database
-function flagCheckLocal() {
-  const localFlag = process.env.npm_config_argv.includes('--local')
-  const currentDbURI = !localFlag ? dbURI : localDbURI
+function getDatabaseInfo() {
+  // Checks for --local from command line
+  const useLocalDatabase = process.env.npm_config_argv.includes('--local')
 
-  return { currentDbURI, name: !localFlag ? 'MongoDB Atlas' : 'Local MongoDB' }
+  const URI = useLocalDatabase ? localDbURI : dbURI
+
+  return { URI, name: useLocalDatabase ? 'Local MongoDB' : 'MongoDB Atlas' }
 }
 
-module.exports = { dbURI, localDbURI, flagCheckLocal }
+module.exports = { dbURI, localDbURI, getDatabaseInfo }

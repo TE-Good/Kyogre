@@ -5,9 +5,9 @@ const moment = require('moment')
 require('dotenv').config()
 
 const Quote = require('./model')
-const { flagCheckLocal } = require('./enviro')
+const { getDatabaseInfo } = require('./enviro')
 
-const URI = flagCheckLocal()
+const URI = getDatabaseInfo()
 const tenet = `
 TENET
 =====
@@ -35,8 +35,17 @@ async function randomQuote() {
   `
 }
 
-// Creates and handles the prompt and its output values
-async function input() {
+async function getTenet() {
+  const tenetPrompt = await inquirer.prompt({
+    type: 'password',
+    name: 'password',
+    message: 'Provide password:'
+  })
+  
+  return tenetPrompt.password === process.env.PASSWORD ? tenet : 'Incorrect password.'
+}
+
+async function selectedOutput() {
   const question = await inquirer.prompt({
     type: 'list',
     name: 'nav',
@@ -51,27 +60,15 @@ async function input() {
   else return 'Incorrect input. Closing..'
 }
 
-async function getTenet() {
-  const tenetPrompt = await inquirer.prompt({
-    type: 'password',
-    name: 'password',
-    message: 'Provide password:'
-  })
-  
-  return tenetPrompt.password === process.env.PASSWORD ? tenet : 'Incorrect password.'
-}
-
-// Prints the values from the prompt
-async function cli() {
-  let answer = null
-  while (answer !== 'exit') {
-    answer = await input()
-    if (answer === 'exit') return
-    console.log(answer)
+async function runInteractiveKyogre() {
+  while (true) {
+    output = await selectedOutput()
+    if (output === 'exit') return
+    console.log(output)
   }
 }
 
-mongoose.connect(URI.currentDbURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err) => {
+mongoose.connect(URI.URI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err) => {
   if (err) return console.log('initial:', err)
   console.log(`
   ____  __.                                   
@@ -83,6 +80,6 @@ mongoose.connect(URI.currentDbURI, { useNewUrlParser: true, useUnifiedTopology: 
   `)
   
   console.log('\nWelcome to Kyogre.\n')
-  await cli()
+  await runInteractiveKyogre()
   mongoose.connection.close()
 })
