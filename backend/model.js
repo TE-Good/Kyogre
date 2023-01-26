@@ -1,7 +1,5 @@
-// Models Module
 const mongoose = require('mongoose')
 
-// Defining schema
 const quoteSchema = new mongoose.Schema({
   quote: String,
   author: String,
