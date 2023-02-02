@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const quoteSchema = new mongoose.Schema({
-  quote: String,
-  author: String,
-  count: Number
+  quote: { type: String, required: true },
+  author: { type: String, required: true },
+  count: { type: Number, required: true, default: 0 }
 })
 
 // Building the quote model
