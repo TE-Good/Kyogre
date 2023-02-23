@@ -5,7 +5,11 @@
 
 ### About
 
+<<<<<<< HEAD
 Kyogre is a displays (mostly) motivational quotes through a the website http://kyogre-quotes.herokuapp.com/, or through the CLI.
+=======
+Kyogre is a displays (mostly) motiviational quotes through a the website https://kyogre.onrender.com, or through the CLI.
+>>>>>>> 826e3eea5056b772721e71d25abda120793f707d
 
 ### How to use
 
