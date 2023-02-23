@@ -7,18 +7,20 @@ const path = require('path')
 require('dotenv').config()
 
 const { getDatabaseInfo } = require('./enviro')
+const { QuotesService } = require('./quotes_service')
 const Quote = require('./model')
 
 const app = express()
 const URI = getDatabaseInfo()
 
-// Mongo connection and db connection log //
+// Mongo connection //
 console.log(`Connecting to ${URI.name}...`)
 mongoose.connect(URI.URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
   console.log(`Connected to ${URI.name}.`)
-  app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}.`))
 })
 
+// Database connection log //
+app.listen(process.env.PORT, () => console.log(`Receiving on port ${process.env.PORT}.`))
 
 // Middleware //
 // JSON parser middleware (only needed for passing HTTP request body)
@@ -36,21 +38,10 @@ app.use((req, res, next) => {
   return next()
 })
 
-
-// Controllers //
-async function quoteOfTheDay(req, res) {
-  const quotes = await Quote.find()
-  return res.send(quotes[moment().format('DDD') % quotes.length])
-}
-
-async function randomQuote(req, res) {
-  const quotes = await Quote.find()
-  return res.send(quotes[Math.floor(Math.random() * quotes.length)])
-}
-
 // Router/Routes //
-router.route('/quote').get(quoteOfTheDay)
-router.route('/random_quote').get(randomQuote)
+router.route('/quote').get(async (req, res) => res.send(await QuotesService.getQuoteOfTheDay()))
+router.route('/random_quote').get(async (req, res) => res.send(await QuotesService.getRandomQuote()))
+router.route('/quote_of_the_day').get(async (req, res) => res.send(await QuotesService.getNEWQuoteOfTheDay()))
 
 app.use('/api', router)
 
@@ -59,7 +50,3 @@ app.use('/api', router)
 // Sends all other GET requests to the frontend.
 app.use('*', (req, res) => res.sendFile(path.join(__dirname, '..', '/dist/index.html')))
 // app.use('/*', (req, res) => res.sendFile(`${process.cwd()}/index.html`))
-
-// Routes & Controllers
-// app.get('/api/quote', (req, res) => res.send(quotes.quotes[moment().format('DDD') % quotes.quotes.length]))
-// app.get('/api/random_quote', (req, res) => res.send(quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)]))

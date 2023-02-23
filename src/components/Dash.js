@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 export default function Dash({ darkTheme }) {
   const history = useHistory()
   const [quote, setQuote] = useState('')
+  const [newQuote, setNewQuote] = useState('')
   const [tenetButtonShow, setTenetButtonShow] = useState(false)
 
   const buttonThemeClass = darkTheme ? 'dark-theme-button' : 'light-theme-button'
@@ -13,6 +14,11 @@ export default function Dash({ darkTheme }) {
     const data = await response.json()
     setQuote(data)
   }
+  // async function getNewQuoteOfTheDay() {
+    const response = await fetch('/api/quote_of_the_day')
+    const data = await response.json()
+    setNewQuote(data)
+  }
 
   async function getRandomQuote() {
     const response = await fetch('/api/random_quote')
@@ -20,11 +26,13 @@ export default function Dash({ darkTheme }) {
     setQuote(data)
   }
 
+
   const navToTenetPage = e => e.keyCode === 84 && history.push('/tenet')
 
   const handleTenetButton = () => tenetButtonShow ? history.push('/tenet') : setTenetButtonShow(true)
 
   useEffect(() => {
+    // getNewQuoteOfTheDay()
     getQuoteOfTheDay()
     window.addEventListener('keyup', e => navToTenetPage(e))
     return () => {
@@ -34,6 +42,7 @@ export default function Dash({ darkTheme }) {
 
   return (
     <>
+      {console.log({newQuote})}
       <i className={`tenet-button fab fa-superpowers secondary-color animated ${tenetButtonShow ? 'fadeIn' : 'opacity'}`} onClick={() => handleTenetButton()}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>

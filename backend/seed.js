@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 const inquirer = require('inquirer')
 
-const Quote = require('./model')
+const { Quote, QuoteOfTheDay } = require('./model')
 const { dbURI, localDbURI } = require('./enviro')
 const quotesList = require('../../quotes/quotes.json')
 
@@ -29,9 +29,12 @@ function seedDatabase(dbURI, locationName) {
 
     await db.dropDatabase()
 
-    const formattedQuotes = addCountToQuotes(quotes)
+    // const formattedQuotes = addCountToQuotes(quotes)
     const dbPop = await Quote.create(formattedQuotes)
     console.log(`${dbPop.length} quotes seeded.`)
+
+    await QuoteOfTheDay.create()
+    console.log(`Quote of the day table created.`)
 
     mongoose.connection.close()
   })

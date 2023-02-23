@@ -4,7 +4,7 @@ const inquirer = require('inquirer')
 const moment = require('moment')
 require('dotenv').config()
 
-const Quote = require('./model')
+const { Quote } = require('./model')
 const { getDatabaseInfo } = require('./enviro')
 
 const URI = getDatabaseInfo()
