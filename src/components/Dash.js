@@ -4,20 +4,14 @@ import { useHistory } from 'react-router-dom'
 export default function Dash({ darkTheme }) {
   const history = useHistory()
   const [quote, setQuote] = useState('')
-  const [newQuote, setNewQuote] = useState('')
   const [tenetButtonShow, setTenetButtonShow] = useState(false)
 
   const buttonThemeClass = darkTheme ? 'dark-theme-button' : 'light-theme-button'
 
   async function getQuoteOfTheDay() {
-    const response = await fetch('/api/quote')
-    const data = await response.json()
-    setQuote(data)
-  }
-  // async function getNewQuoteOfTheDay() {
     const response = await fetch('/api/quote_of_the_day')
     const data = await response.json()
-    setNewQuote(data)
+    setQuote(data)
   }
 
   async function getRandomQuote() {
@@ -32,7 +26,6 @@ export default function Dash({ darkTheme }) {
   const handleTenetButton = () => tenetButtonShow ? history.push('/tenet') : setTenetButtonShow(true)
 
   useEffect(() => {
-    // getNewQuoteOfTheDay()
     getQuoteOfTheDay()
     window.addEventListener('keyup', e => navToTenetPage(e))
     return () => {
@@ -42,14 +35,13 @@ export default function Dash({ darkTheme }) {
 
   return (
     <>
-      {console.log({newQuote})}
-      <i className={`tenet-button fab fa-superpowers secondary-color animated ${tenetButtonShow ? 'fadeIn' : 'opacity'}`} onClick={() => handleTenetButton()}></i>
+      <i className={`tenet-button fab fa-superpowers secondary-color animated ${tenetButtonShow ? 'fadeIn' : 'opacity'}`} onClick={handleTenetButton}></i>
       <div className="dash-container animated fadeIn">
         <div className="quote-text">{quote.quote}</div>
         <div className="quote-author">- {quote.author}</div>
         <div className="button-container secondary-color">
-          <h4 className={`qotd-button ${buttonThemeClass}`} onClick={() => getQuoteOfTheDay()}>QUOTE OF THE DAY</h4>
-          <h4 className={`random-quote-icon ${buttonThemeClass}`} onClick={() => getRandomQuote()}><i className="fas fa-dice"></i></h4>
+          <h4 className={`qotd-button ${buttonThemeClass}`} onClick={getQuoteOfTheDay}>QUOTE OF THE DAY</h4>
+          <h4 className={`random-quote-icon ${buttonThemeClass}`} onClick={getRandomQuote}><i className="fas fa-dice"></i></h4>
         </div>
       </div>
     </>
